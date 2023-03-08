@@ -19,6 +19,7 @@ import modelo.Usuarios;
 
 public class Inicial extends javax.swing.JFrame {
 
+    private boolean ventana = false;
     
     public Inicial() {
         setTitle(Clogin.NomUsuario);
@@ -256,11 +257,15 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnequio2MouseExited
 
     private void btnequio2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequio2MouseClicked
-        SQLequipos sql = new SQLequipos();
-        Vequipos ve = new Vequipos();
+        if(!ventana){
+            ventana = true;
+            SQLequipos sql = new SQLequipos();
+            Vequipos ve = new Vequipos();
+
+            Cequipos ce = new Cequipos(sql, ve);
+            this.setVisible(false);
+        }
         
-        Cequipos ce = new Cequipos(sql, ve);
-        this.setVisible(false);
     }//GEN-LAST:event_btnequio2MouseClicked
 //boton perosnas
     private void btnperifericosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseEntered
@@ -274,11 +279,15 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnperifericosMouseExited
 
     private void btnperifericosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseClicked
-        Vperifericos a=new Vperifericos();
-        SQLperifericos sql = new SQLperifericos();
+        if(!ventana){
+            ventana = true;
+            Vperifericos a = new Vperifericos();
+            SQLperifericos sql = new SQLperifericos();
+
+            Cperifericos cp = new Cperifericos(sql, a);
+            this.setVisible(false);
+        }
         
-        Cperifericos cp = new Cperifericos(sql, a);
-        this.setVisible(false);
     }//GEN-LAST:event_btnperifericosMouseClicked
 //boton de usuarios
     private void btnusuarios2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuarios2MouseEntered
@@ -292,11 +301,15 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnusuarios2MouseExited
 
     private void btnusuarios2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuarios2MouseClicked
-        SQLusuarios sql = new SQLusuarios();
-        Vusuarios  a=new Vusuarios();
+        if(!ventana){
+            ventana = true;
+            SQLusuarios sql = new SQLusuarios();
+            Vusuarios a = new Vusuarios();
+
+            Cusuarios cus = new Cusuarios(sql, a);
+            this.setVisible(false);
+        }
         
-        Cusuarios cus = new Cusuarios(sql, a);
-        this.setVisible(false);
     }//GEN-LAST:event_btnusuarios2MouseClicked
 //boton de grafica
     private void btndepartamentosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseEntered
@@ -310,11 +323,15 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btndepartamentosMouseExited
 
     private void btndepartamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseClicked
-        Vdepartamentos a=new Vdepartamentos();
-        SQLdepartamentos dep = new SQLdepartamentos();
+        if(!ventana){
+            ventana = true;
+            Vdepartamentos a = new Vdepartamentos();
+            SQLdepartamentos dep = new SQLdepartamentos();
+
+            Cdepartamentos cd = new Cdepartamentos(dep, a);
+            this.setVisible(false);
+        }
         
-        Cdepartamentos cd = new Cdepartamentos(dep, a);
-        this.setVisible(false);
     }//GEN-LAST:event_btndepartamentosMouseClicked
 //boton salir
     private void btnsalir2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseEntered
@@ -353,9 +370,13 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnreportesMouseExited
 
     private void btnreportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnreportesMouseClicked
-        Vreportes a=new Vreportes();
-        a.setVisible(true);
-        this.setVisible(false);
+        if(!ventana){
+            ventana = true;
+            Vreportes a = new Vreportes();
+            a.setVisible(true);
+            this.setVisible(false);
+        }
+        
     }//GEN-LAST:event_btnreportesMouseClicked
 
     /**

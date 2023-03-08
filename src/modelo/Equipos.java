@@ -42,6 +42,10 @@ public class Equipos {
         }
     }
 
+    public void setMarca(int marca) {
+        this.marca = marca;
+    }
+
     public void setModelo(int modelo) {
         this.modelo = modelo;
     }

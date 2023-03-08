@@ -249,6 +249,7 @@ public class Vequipos extends javax.swing.JFrame {
         btnmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(btnmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
+        jtperifericos.setBackground(new java.awt.Color(225, 232, 236));
         jtperifericos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -420,6 +421,9 @@ public class Vequipos extends javax.swing.JFrame {
             }
         ));
         jtequipos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jtequipos.setRequestFocusEnabled(false);
+        jtequipos.setRowHeight(15);
+        jtequipos.setRowMargin(5);
         jScrollPane1.setViewportView(jtequipos);
 
         fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 710, 350));

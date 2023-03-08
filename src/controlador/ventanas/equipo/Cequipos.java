@@ -1,5 +1,6 @@
 package controlador.ventanas.equipo;
 
+import controlador.consultas.SQLdepartamentos;
 import controlador.consultas.SQLequipos;
 import controlador.ventanas.login.Clogin;
 import java.awt.Dimension;
@@ -21,6 +22,7 @@ public class Cequipos implements ActionListener {
     private SQLequipos sql;
     private Vequipos ve;
     private MouseEquipos me;
+    private Equipos eq;
 
     private String MARCA, MODELO, SERIAL, ESTADO, USUARIO;
     Boolean selecionado = false;
@@ -143,7 +145,7 @@ public class Cequipos implements ActionListener {
 
             if (mar != 0) {
                 ve.cbmodelo.removeAllItems();
-                sql.getModelo(ve.cbmodelo, mar + 1);
+                sql.cbModelo(ve.cbmodelo, mar + 1);
 
             }
         }
@@ -193,8 +195,12 @@ public class Cequipos implements ActionListener {
     protected void AbrirAñadir() {
         if (Clogin.Regular || Clogin.Admin) {
             ve.cbmarca.removeAllItems();
-            sql.getMarca(ve.cbmarca);
+            sql.cbMarca(ve.cbmarca);
             ve.cbmarca.setSelectedIndex(0);
+
+            SQLdepartamentos dep = new SQLdepartamentos();
+            ve.cbdepartamentos.removeAllItems();
+            dep.cbDepa(ve.cbdepartamentos);
 
             //setero de la venta
             ve.jfañadir.setMinimumSize(new Dimension(400, 160));
@@ -223,6 +229,8 @@ public class Cequipos implements ActionListener {
             ve.txtdetestado.setText("Estado: " + det.getEstado());
             ve.txtdetususario.setText("Usuario: " + det.getUs());
 
+            traerEquipo(det);
+
             Departamentos depa = sql.getdepa(SERIAL);
 
             if (depa != null) {
@@ -246,17 +254,28 @@ public class Cequipos implements ActionListener {
 
     }
 
+    private void traerEquipo(Equipos eq) {
+        this.eq = eq;
+    }
+
     protected void AbrirModificar() {
 
         if (Clogin.Regular || Clogin.Admin) {
             ve.cbmarca.removeAllItems();
-            sql.getMarca(ve.cbmarca);
+            sql.cbMarca(ve.cbmarca);
 
-            ve.cbmarca.setSelectedItem(MARCA);
-            ve.cbmodelo.setSelectedItem(MODELO);
-            ve.txtserial.setText(SERIAL);
-            ve.cbestado.setSelectedItem(ESTADO);
-            ve.txtusuario.setText(USUARIO);
+            Equipos mod = eq;
+
+            ve.cbdepartamentos.removeAllItems();
+            SQLdepartamentos dep = new SQLdepartamentos();
+            dep.cbDepa(ve.cbdepartamentos);
+            ve.cbdepartamentos.setSelectedItem(dep.getAsig(mod.getId()));
+
+            ve.cbmarca.setSelectedItem(mod.getMarcaP());
+            ve.cbmodelo.setSelectedItem(mod.getMarcaP());
+            ve.txtserial.setText(mod.getSerial());
+            ve.cbestado.setSelectedItem(mod.getEstado());
+            ve.txtusuario.setText(mod.getUs());
 
             //seteo de la ventana
             ve.jfañadir.setMinimumSize(new Dimension(400, 350));
@@ -276,9 +295,9 @@ public class Cequipos implements ActionListener {
     }
 
     private void AbrirPerifericos() {
-        
+
         if (Clogin.Regular || Clogin.Admin) {
-            
+
             ve.cbtipoperi.removeAllItems();
             ve.txtserialperi.setText("");
 
@@ -293,7 +312,7 @@ public class Cequipos implements ActionListener {
             ve.jfperiferico.setSize(355, 300);
             ve.jfperiferico.setLocationRelativeTo(ve);
             ve.jfperiferico.setVisible(true);
-            
+
         } else {
             JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
         }
@@ -313,7 +332,7 @@ public class Cequipos implements ActionListener {
         ve.jfmodelo.setResizable(false);
         ve.jfmodelo.setLocationRelativeTo(ve);
         ve.cbnewModelo.removeAllItems();
-        sql.getMarca(ve.cbnewModelo);
+        sql.cbMarca(ve.cbnewModelo);
         ve.jfmodelo.setVisible(true);
     }
 
@@ -339,9 +358,21 @@ public class Cequipos implements ActionListener {
                 String numModelo = ve.cbmodelo.getItemAt(cbModelo);
 
                 if (sql.AñadirEquipos(nuevo, numModelo)) {
+
+                    //asignacion del equipo
+                    Equipos o = sql.getEquipo(nuevo.getSerial());
+
+                    SQLdepartamentos depa = new SQLdepartamentos();
+                    int d = ve.cbdepartamentos.getSelectedIndex();
+                    String a = ve.cbdepartamentos.getItemAt(d);
+
+                    if (depa.AsignarEquipo(depa.getId(a), o.getId())) {
+                        
+                    }
+
                     JOptionPane.showMessageDialog(ve.jfañadir, "Registro Guardado");
                     llenadoTabla();
-
+                    ve.cbdepartamentos.setSelectedIndex(0);
                     ve.cbtipobusqueda.setSelectedIndex(0);
 
                     VaciarCampos();
@@ -402,34 +433,26 @@ public class Cequipos implements ActionListener {
         String txtSerial = ve.txtserial.getText();
         String txtUsuario = ve.txtusuario.getText();
 
-        Equipos nuevo = new Equipos(sql.getid(SERIAL), marca, modelo, txtSerial, estado, txtUsuario);
-        Equipos viejo = sql.getEquipo(SERIAL);
-
         //confirma que se ingresen los datos
-        if (cbEstado != 0 && cbMarca != 0 && !txtSerial.equals("") && !txtUsuario.equals("")) {
+        if (cbEstado != 0 || cbMarca != 0 || !txtSerial.equals("") || !txtUsuario.equals("")) {
+
+            Equipos nuevo = new Equipos(sql.getid(txtSerial), marca, modelo, txtSerial, estado, txtUsuario);
+            nuevo.setModelo(cbModelo);
+            nuevo.setMarca(cbMarca + 1);
+            Equipos viejo = eq;
 
             if (!nuevo.comparar(viejo)) {//valida que los datos no sean iguales
 
-                if (sql.validaPC(txtSerial) >= 1) {// valida que el serial no este repetido
-                    System.out.println(sql.validaPC(txtSerial));
-                    JOptionPane.showMessageDialog(ve.jfañadir, "Ya existe un registro con ese serial");
+                if (nuevo.getSerial().equals(viejo.getSerial())) {
 
+                    modificar(nuevo, viejo, cbModelo);
+                    
                 } else {
+                    if (sql.validaPC(nuevo.getSerial()) == 0) {// valida que el serial no este repetido
 
-                    Equipos mod = new Equipos(cbMarca + 1, cbModelo, txtSerial, estado, txtUsuario);
-
-                    String nomModelo = ve.cbmodelo.getItemAt(cbModelo);
-
-                    if (sql.Modificar(mod, nomModelo, viejo.getId())) {
-                        JOptionPane.showMessageDialog(ve.jfañadir, "Registro Cambiado");
-                        llenadoTabla();
-
-                        ve.cbtipobusqueda.setSelectedIndex(0);
-
-                        VaciarCampos();
-                        ve.jfañadir.setVisible(false);
+                        modificar(nuevo, viejo, cbModelo);
                     } else {
-                        JOptionPane.showMessageDialog(ve, "Error al guardar cambio");
+                        JOptionPane.showMessageDialog(ve.jfañadir, "Ya existe un registro con ese serial");
                     }
                 }
 
@@ -438,6 +461,35 @@ public class Cequipos implements ActionListener {
             }
         } else {
             JOptionPane.showMessageDialog(ve.jfañadir, "Debe espesificar todos los datos solicitados");
+        }
+    }
+
+    private void modificar(Equipos nuevo, Equipos viejo, int cbModelo) {
+        String nomModelo = ve.cbmodelo.getItemAt(cbModelo);
+
+        if (sql.Modificar(nuevo, nomModelo, viejo.getId())) {
+            //asignacion del equipo
+            Equipos o = sql.getEquipo(nuevo.getSerial());
+
+            SQLdepartamentos depa = new SQLdepartamentos();
+            int d = ve.cbdepartamentos.getSelectedIndex();
+            String a = ve.cbdepartamentos.getItemAt(d);
+
+            if (depa.AsignarEquipo(depa.getId(a), o.getId())) {
+                System.out.println("asginado");
+            }
+
+            JOptionPane.showMessageDialog(ve.jfañadir, "Registro Cambiado");
+            llenadoTabla();
+
+            ve.cbtipobusqueda.setSelectedIndex(0);
+
+            VaciarCampos();
+            ve.jfañadir.setVisible(false);
+            
+            eq = null;
+        } else {
+            JOptionPane.showMessageDialog(ve, "Error al guardar cambio");
         }
     }
 
@@ -468,7 +520,7 @@ public class Cequipos implements ActionListener {
 
             case 1://marca
 
-                sql.getMarca(ve.cbbusqueda);
+                sql.cbMarca(ve.cbbusqueda);
 
                 ve.txtbusqueda.setVisible(false);
                 ve.cbbusqueda.setVisible(true);
@@ -537,7 +589,7 @@ public class Cequipos implements ActionListener {
                 ve.cbbusModelos.removeAllItems();
 
                 if (mar != 0) {
-                    sql.getModelo(ve.cbbusModelos, mar + 1);
+                    sql.cbModelo(ve.cbbusModelos, mar + 1);
                 }
 
             } else {

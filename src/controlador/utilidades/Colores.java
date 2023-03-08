@@ -2,6 +2,7 @@
 package controlador.utilidades;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import javax.swing.JButton;
 
 public class Colores {
@@ -11,10 +12,12 @@ public class Colores {
     
     public void claro(JButton btn){
         btn.setBackground(BONTON_CLARO);
+        btn.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
     }
     
     public void oscuro(JButton btn){
         btn.setBackground(BONTON_OSCURO);
+        btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
     }
     
 }

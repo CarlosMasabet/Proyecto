@@ -391,7 +391,7 @@ public class SQLequipos extends Conexion_SQL {
     }
 
     //llenado de desplegables desde un base de datos
-    public void getMarca(JComboBox cb) {
+    public void cbMarca(JComboBox cb) {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConnection();
@@ -429,7 +429,7 @@ public class SQLequipos extends Conexion_SQL {
         }
     }
 
-    public void getModelo(JComboBox cb, int marca) {
+    public void cbModelo(JComboBox cb, int marca) {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConnection();
@@ -468,7 +468,8 @@ public class SQLequipos extends Conexion_SQL {
             }
         }
     }
-
+    
+    //retotnan datos
     public Equipos getEquipo(String serial) {
         PreparedStatement ps = null;
         ResultSet rs;

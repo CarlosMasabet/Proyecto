@@ -19,8 +19,10 @@ import vista.Vusuarios;
 
 public class Menu {
 
-    Imagenes img;
-    boolean derecha;
+    private Imagenes img;
+    private boolean derecha;
+    private boolean cambio = false;
+    
 
     public Menu(Imagenes img) {
         this.img = img;
@@ -62,11 +64,15 @@ public class Menu {
     }
 
     public void equipos_click(JFrame ventana) {
-        SQLequipos sql = new SQLequipos();
-        Vequipos ve = new Vequipos();
+        if(!cambio){
+            cambio = true;
+            SQLequipos sql = new SQLequipos();
+            Vequipos ve = new Vequipos();
 
-        Cequipos ce = new Cequipos(sql, ve);
-        ventana.setVisible(false);
+            Cequipos ce = new Cequipos(sql, ve);
+            ventana.setVisible(false);
+        }
+        
     }
 
     public void reportes_entra(JLabel boton, JLabel txt) {
@@ -82,9 +88,13 @@ public class Menu {
     }
 
     public void reportes_click(JFrame ventana) {
-        Vreportes b = new Vreportes();
-        b.setVisible(true);
-        ventana.setVisible(false);
+        if(!cambio){
+            cambio = true;
+            Vreportes b = new Vreportes();
+            b.setVisible(true);
+            ventana.setVisible(false);
+        }
+        
     }
 
     public void perifericos_entra(JLabel boton, JLabel txt) {
@@ -100,11 +110,15 @@ public class Menu {
     }
 
     public void perifericos_click(JFrame ventana) {
-        Vperifericos b = new Vperifericos();
-        SQLperifericos sql = new SQLperifericos();
+        if(!cambio){
+            cambio = true;
+            Vperifericos b = new Vperifericos();
+            SQLperifericos sql = new SQLperifericos();
 
-        Cperifericos cp = new Cperifericos(sql, b);
-        ventana.setVisible(false);
+            Cperifericos cp = new Cperifericos(sql, b);
+            ventana.setVisible(false);
+        }
+        
     }
 
     public void usuarios_entra(JLabel boton, JLabel txt) {
@@ -120,11 +134,15 @@ public class Menu {
     }
 
     public void usuarios_click(JFrame ventana) {
-        SQLusuarios sql = new SQLusuarios();
-        Vusuarios a = new Vusuarios();
+        if(!cambio){
+            cambio = true;
+            SQLusuarios sql = new SQLusuarios();
+            Vusuarios a = new Vusuarios();
 
-        Cusuarios cus = new Cusuarios(sql, a);
-        ventana.setVisible(false);
+            Cusuarios cus = new Cusuarios(sql, a);
+            ventana.setVisible(false);
+        }
+        
     }
 
     public void departamento_entra(JLabel boton, JLabel txt) {
@@ -140,10 +158,14 @@ public class Menu {
     }
 
     public void departamento_click(JFrame ventana) {
-        Vdepartamentos b = new Vdepartamentos();
-        SQLdepartamentos dep = new SQLdepartamentos();
+        if(!cambio){
+            cambio = true;
+            Vdepartamentos b = new Vdepartamentos();
+            SQLdepartamentos dep = new SQLdepartamentos();
 
-        Cdepartamentos cd = new Cdepartamentos(dep, b);
-        ventana.setVisible(false);
+            Cdepartamentos cd = new Cdepartamentos(dep, b);
+            ventana.setVisible(false);
+        }
+        
     }
 }

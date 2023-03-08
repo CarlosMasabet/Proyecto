@@ -115,6 +115,7 @@ public class Vperifericos extends javax.swing.JFrame {
         txtdetususario.setText("usuario");
         jPanel2.add(txtdetususario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, -1));
 
+        jtperifericos1.setBackground(new java.awt.Color(225, 232, 236));
         jtperifericos1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
