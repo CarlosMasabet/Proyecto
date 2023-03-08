@@ -1,6 +1,8 @@
 package proyecto;
 
 import controlador.consultas.SQLusuarios;
+import controlador.utilidades.Colores;
+import controlador.utilidades.Imagenes;
 import controlador.ventanas.login.Clogin;
 import javax.swing.ImageIcon;
 import modelo.Usuarios;
@@ -15,14 +17,17 @@ public class Proyecto {
     
     private static Clogin cl;
     
-    public static final ImageIcon icono = new ImageIcon(Proyecto.class.getResource("/imagenes/icono.png"));
+    public static final ImageIcon ICONO = new ImageIcon(Proyecto.class.getResource("/imagenes/icono.png"));
+    
+    public static Colores color = new Colores();
+    public static Imagenes img = new Imagenes();
                
     public static void main(String[] args) {
         
         sql = new SQLusuarios();
         us =  new Usuarios();
         ve = new Login();
-        ve.setIconImage(icono.getImage());
+        ve.setIconImage(ICONO.getImage());
         
         cl = new Clogin(sql, ve, us);
     }

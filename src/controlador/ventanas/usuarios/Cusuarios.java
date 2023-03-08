@@ -1,4 +1,4 @@
-package controlador.ventanas;
+package controlador.ventanas.usuarios;
 
 import controlador.ventanas.login.Clogin;
 import controlador.utilidades.Hash;
@@ -12,12 +12,14 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Usuarios;
+import proyecto.Proyecto;
 import vista.Vusuarios;
 
 public class Cusuarios implements ActionListener {
 
     private SQLusuarios sql;
     private Vusuarios ve;
+    private MouseUsuarios mu;
 
     private String TIPO_US, NOMBRE, CODIGO;
     private Boolean seleccionado = false;
@@ -26,8 +28,10 @@ public class Cusuarios implements ActionListener {
     public Cusuarios(SQLusuarios sql, Vusuarios ve) {
         this.sql = sql;
         this.ve = ve;
+        
+        mu = new MouseUsuarios(ve, Proyecto.color);
 
-        ve.btnabrir_añadir.addActionListener(this);
+        ve.btnabrirAñadir.addActionListener(this);
         ve.btnagregar_us.addActionListener(this);
         ve.btneliminar.addActionListener(this);
         ve.btnabrirMod.addActionListener(this);
@@ -54,7 +58,7 @@ public class Cusuarios implements ActionListener {
     private void Iniciar() {
         ve.setMinimumSize(new Dimension(710, 500));
         ve.setTitle(Clogin.NomUsuario);
-        ve.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.setLocationRelativeTo(null);
         ve.setResizable(false);
         ve.setVisible(true);
@@ -66,7 +70,7 @@ public class Cusuarios implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(ve.btnabrir_añadir)) {
+        if (e.getSource().equals(ve.btnabrirAñadir)) {
             AbrirAñadir();
         }
         if (e.getSource().equals(ve.btnagregar_us)) {
@@ -103,8 +107,8 @@ public class Cusuarios implements ActionListener {
         if (Clogin.Admin) {//solo el administrador
             ve.jfañadir_us.setResizable(false);
             ve.jfañadir_us.setTitle("Agregar Usuario");
-            ve.jfañadir_us.setIconImage(proyecto.Proyecto.icono.getImage());
-            ve.jfañadir_us.setMinimumSize(new Dimension(460, 400));
+            ve.jfañadir_us.setIconImage(proyecto.Proyecto.ICONO.getImage());
+            ve.jfañadir_us.setSize(new Dimension(460, 400));
             ve.jfañadir_us.setLocationRelativeTo(ve);
             ve.titulo.setText("Agregar Usuario");
             ve.btnmodDatos.setVisible(false);
@@ -211,7 +215,7 @@ public class Cusuarios implements ActionListener {
     private void AbrirModCon() {
         ve.jfmodificar.setResizable(false);
         ve.jfmodificar.setTitle("Cambiar Contraseña");
-        ve.jfmodificar.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.jfmodificar.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.jfmodificar.setMinimumSize(new Dimension(350, 360));
         ve.jfmodificar.setLocationRelativeTo(ve);
 
@@ -293,7 +297,7 @@ public class Cusuarios implements ActionListener {
                 ve.jfañadir_us.setResizable(false);
                 ve.jfañadir_us.setTitle("Modificar Datos");
                 ve.titulo.setText("Modificar Datos");
-                ve.jfañadir_us.setMinimumSize(new Dimension(460, 310));
+                ve.jfañadir_us.setSize(new Dimension(460, 310));
                 ve.jfañadir_us.setLocationRelativeTo(ve);
                 ve.btnmodDatos.setVisible(true);
                 //seteo de botonones

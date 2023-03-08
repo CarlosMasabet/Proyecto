@@ -1,14 +1,14 @@
 
 package vista;
 
-import AppPackage.AnimationClass;
-import controlador.utilidades.Imagen;
+import controlador.utilidades.Imagenes;
 import controlador.utilidades.Menu;
+import proyecto.Proyecto;
 
 public class Vdepartamentos extends javax.swing.JFrame {
 
     boolean derecha=false;
-    Menu m=new Menu();
+    Menu m = new Menu(Proyecto.img);
     public Vdepartamentos() {
         initComponents();
         this.setLocationRelativeTo(null);    
@@ -47,12 +47,12 @@ public class Vdepartamentos extends javax.swing.JFrame {
         btnmenu = new javax.swing.JLabel();
         btnsalir2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnabriragregar = new javax.swing.JButton();
-        btnabrirasignar = new javax.swing.JButton();
+        btnAbrirAgregar = new javax.swing.JButton();
+        btnAbrirAsignar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtdepartamentos = new javax.swing.JTable();
-        btnabrirmodificar = new javax.swing.JButton();
-        btnabrirsolicitud = new javax.swing.JButton();
+        btnAbrirModificar = new javax.swing.JButton();
+        btnAbrirSolicitud = new javax.swing.JButton();
         cbtipobusqueda = new javax.swing.JComboBox<>();
         cbbuscar = new javax.swing.JComboBox<>();
         txtbuscar = new javax.swing.JTextField();
@@ -235,24 +235,24 @@ public class Vdepartamentos extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(225, 232, 236));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnabriragregar.setBackground(new java.awt.Color(0, 134, 190));
-        btnabriragregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnabriragregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnabriragregar.setText("Agregar Departamento");
-        btnabriragregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnabriragregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, -1));
+        btnAbrirAgregar.setBackground(new java.awt.Color(0, 134, 190));
+        btnAbrirAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAbrirAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAbrirAgregar.setText("Agregar Departamento");
+        btnAbrirAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnAbrirAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, -1));
 
-        btnabrirasignar.setBackground(new java.awt.Color(0, 134, 190));
-        btnabrirasignar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnabrirasignar.setForeground(new java.awt.Color(255, 255, 255));
-        btnabrirasignar.setText("Asignar Equipo");
-        btnabrirasignar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnabrirasignar.addActionListener(new java.awt.event.ActionListener() {
+        btnAbrirAsignar.setBackground(new java.awt.Color(0, 134, 190));
+        btnAbrirAsignar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAbrirAsignar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAbrirAsignar.setText("Asignar Equipo");
+        btnAbrirAsignar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAbrirAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnabrirasignarActionPerformed(evt);
+                btnAbrirAsignarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnabrirasignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
+        jPanel1.add(btnAbrirAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(225, 232, 236));
 
@@ -272,19 +272,19 @@ public class Vdepartamentos extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 500));
 
-        btnabrirmodificar.setBackground(new java.awt.Color(0, 134, 190));
-        btnabrirmodificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnabrirmodificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnabrirmodificar.setText("Cambiar Datos");
-        btnabrirmodificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnabrirmodificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
+        btnAbrirModificar.setBackground(new java.awt.Color(0, 134, 190));
+        btnAbrirModificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAbrirModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAbrirModificar.setText("Cambiar Datos");
+        btnAbrirModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnAbrirModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
 
-        btnabrirsolicitud.setBackground(new java.awt.Color(0, 134, 190));
-        btnabrirsolicitud.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnabrirsolicitud.setForeground(new java.awt.Color(255, 255, 255));
-        btnabrirsolicitud.setText("Crear Solicitud");
-        btnabrirsolicitud.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnabrirsolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
+        btnAbrirSolicitud.setBackground(new java.awt.Color(0, 134, 190));
+        btnAbrirSolicitud.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAbrirSolicitud.setForeground(new java.awt.Color(255, 255, 255));
+        btnAbrirSolicitud.setText("Crear Solicitud");
+        btnAbrirSolicitud.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnAbrirSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
 
         cbtipobusqueda.setBackground(new java.awt.Color(0, 134, 190));
         cbtipobusqueda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -361,12 +361,12 @@ public class Vdepartamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD=new Imagenes();
         flechaD.bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseEntered
 
     private void btnmenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseExited
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD=new Imagenes();
         flechaD.no_bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseExited
 
@@ -380,9 +380,9 @@ public class Vdepartamentos extends javax.swing.JFrame {
         m.departamento_click(this);
     }//GEN-LAST:event_btngraficasMouseClicked
 
-    private void btnabrirasignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirasignarActionPerformed
+    private void btnAbrirAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirAsignarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnabrirasignarActionPerformed
+    }//GEN-LAST:event_btnAbrirAsignarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -422,10 +422,10 @@ public class Vdepartamentos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JSeparator Separado;
-    public javax.swing.JButton btnabriragregar;
-    public javax.swing.JButton btnabrirasignar;
-    public javax.swing.JButton btnabrirmodificar;
-    public javax.swing.JButton btnabrirsolicitud;
+    public javax.swing.JButton btnAbrirAgregar;
+    public javax.swing.JButton btnAbrirAsignar;
+    public javax.swing.JButton btnAbrirModificar;
+    public javax.swing.JButton btnAbrirSolicitud;
     public javax.swing.JButton btnagregar;
     private javax.swing.JLabel btnequipos;
     private javax.swing.JLabel btngraficas;

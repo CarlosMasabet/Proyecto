@@ -13,13 +13,15 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Departamentos;
 import modelo.Equipos;
 import modelo.Perifericos;
+import proyecto.Proyecto;
 import vista.Vperifericos;
 
 public class Cperifericos implements ActionListener {
 
-    SQLperifericos sql;
-    Vperifericos ve;
-    TecladoPerifericos tp;
+    private SQLperifericos sql;
+    private Vperifericos ve;
+    private TecladoPerifericos tp;
+    private MousePerifericos mp;
 
     private String SERIAL, PERIFERICO, PC;
     private Boolean seleccionado = false;
@@ -29,6 +31,7 @@ public class Cperifericos implements ActionListener {
         this.ve = ve;
         
         tp = new TecladoPerifericos(this);
+        mp = new MousePerifericos(ve, Proyecto.color);
 
         ve.btnabriragregar.addActionListener(this);
         ve.btndetalles.addActionListener(this);
@@ -72,7 +75,7 @@ public class Cperifericos implements ActionListener {
         ve.setSize(new Dimension(590, 520));
         ve.setResizable(false);
         ve.setTitle(Clogin.NomUsuario);
-        ve.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.setLocationRelativeTo(null);
         ve.setVisible(true);
     }
@@ -127,7 +130,7 @@ public class Cperifericos implements ActionListener {
             ve.btnreasignar.setVisible(false);
 
             ve.jfañadir.setResizable(false);
-            ve.jfañadir.setIconImage(proyecto.Proyecto.icono.getImage());
+            ve.jfañadir.setIconImage(proyecto.Proyecto.ICONO.getImage());
             ve.jfañadir.setSize(355, 300);
             ve.jfañadir.setLocationRelativeTo(ve);
             ve.jfañadir.setVisible(true);
@@ -157,7 +160,7 @@ public class Cperifericos implements ActionListener {
             sql.tablaDetalles(equipo.getId(), ve.jtperifericos1);
 
             ve.jfdetalles.setMinimumSize(new Dimension(350, 390));
-            ve.jfdetalles.setIconImage(proyecto.Proyecto.icono.getImage());
+            ve.jfdetalles.setIconImage(proyecto.Proyecto.ICONO.getImage());
             ve.jfdetalles.setResizable(false);
             ve.jfdetalles.setLocationRelativeTo(ve);
             ve.jfdetalles.setTitle("Detalles");
@@ -190,7 +193,7 @@ public class Cperifericos implements ActionListener {
                 ve.btnreasignar.setVisible(true);
 
                 ve.jfañadir.setResizable(false);
-                ve.jfañadir.setIconImage(proyecto.Proyecto.icono.getImage());
+                ve.jfañadir.setIconImage(proyecto.Proyecto.ICONO.getImage());
                 ve.jfañadir.setSize(355, 300);
                 ve.jfañadir.setLocationRelativeTo(ve);
                 ve.jfañadir.setVisible(true);
@@ -208,7 +211,7 @@ public class Cperifericos implements ActionListener {
         ve.txtnuevoperi.setText("");
         ve.jftipo.setSize(new Dimension(215, 175));
         ve.jftipo.setResizable(false);
-        ve.jftipo.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.jftipo.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.jftipo.setLocationRelativeTo(ve);
         ve.jftipo.setVisible(true);
     }

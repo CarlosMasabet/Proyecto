@@ -4,11 +4,11 @@ package vista;
 import controlador.consultas.SQLdepartamentos;
 import controlador.consultas.SQLequipos;
 import controlador.consultas.SQLperifericos;
-import controlador.ventanas.Cusuarios;
+import controlador.ventanas.usuarios.Cusuarios;
 import controlador.consultas.SQLusuarios;
 import controlador.ventanas.login.Clogin;
 import controlador.ventanas.perifericos.Cperifericos;
-import controlador.ventanas.Cdepartamentos;
+import controlador.ventanas.departamentos.Cdepartamentos;
 import controlador.ventanas.equipo.Cequipos;
 import java.awt.Color;
 import javax.swing.Icon;
@@ -22,7 +22,7 @@ public class Inicial extends javax.swing.JFrame {
     
     public Inicial() {
         setTitle(Clogin.NomUsuario);
-        setIconImage(proyecto.Proyecto.icono.getImage());
+        setIconImage(proyecto.Proyecto.ICONO.getImage());
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -334,7 +334,7 @@ public class Inicial extends javax.swing.JFrame {
             SQLusuarios sql = new SQLusuarios();
             Usuarios us = new Usuarios();
             Login ve = new Login();
-            ve.setIconImage(proyecto.Proyecto.icono.getImage());
+            ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
 
             Clogin cl = new Clogin(sql, ve, us);
             this.setVisible(false);

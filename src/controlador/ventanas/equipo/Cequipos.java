@@ -14,6 +14,7 @@ import modelo.Equipos;
 import vista.Vequipos;
 import controlador.consultas.SQLperifericos;
 import modelo.Perifericos;
+import proyecto.Proyecto;
 
 public class Cequipos implements ActionListener {
 
@@ -30,9 +31,9 @@ public class Cequipos implements ActionListener {
         this.sql = sql;
         this.ve = ve;
 
-        me = new MouseEquipos(ve);
+        me = new MouseEquipos(ve, Proyecto.color);
         teclado = new TecladoEquipos(this);
-        ve.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
 
         ve.txtbusqueda.addKeyListener(teclado);
 
@@ -197,7 +198,7 @@ public class Cequipos implements ActionListener {
 
             //setero de la venta
             ve.jfañadir.setMinimumSize(new Dimension(400, 160));
-            ve.jfañadir.setIconImage(proyecto.Proyecto.icono.getImage());
+            ve.jfañadir.setIconImage(proyecto.Proyecto.ICONO.getImage());
             ve.jfañadir.setResizable(false);
             ve.jfañadir.setLocationRelativeTo(ve);
             ve.jfañadir.setTitle("Añadir");
@@ -233,7 +234,7 @@ public class Cequipos implements ActionListener {
             peri.tablaDetalles(det.getId(), ve.jtperifericos);
 
             ve.jfdetalles.setMinimumSize(new Dimension(350, 390));
-            ve.jfdetalles.setIconImage(proyecto.Proyecto.icono.getImage());
+            ve.jfdetalles.setIconImage(proyecto.Proyecto.ICONO.getImage());
             ve.jfdetalles.setResizable(false);
             ve.jfdetalles.setLocationRelativeTo(ve);
             ve.jfdetalles.setTitle("Detalles");
@@ -259,7 +260,7 @@ public class Cequipos implements ActionListener {
 
             //seteo de la ventana
             ve.jfañadir.setMinimumSize(new Dimension(400, 350));
-            ve.jfañadir.setIconImage(proyecto.Proyecto.icono.getImage());
+            ve.jfañadir.setIconImage(proyecto.Proyecto.ICONO.getImage());
             ve.jfañadir.setResizable(false);
             ve.jfañadir.setLocationRelativeTo(ve.jfdetalles);
             ve.jfañadir.setTitle("Modificar");
@@ -288,7 +289,7 @@ public class Cequipos implements ActionListener {
             ve.txtserialpc.setText(pe.getSerial());
 
             ve.jfperiferico.setResizable(false);
-            ve.jfperiferico.setIconImage(proyecto.Proyecto.icono.getImage());
+            ve.jfperiferico.setIconImage(proyecto.Proyecto.ICONO.getImage());
             ve.jfperiferico.setSize(355, 300);
             ve.jfperiferico.setLocationRelativeTo(ve);
             ve.jfperiferico.setVisible(true);
@@ -301,7 +302,7 @@ public class Cequipos implements ActionListener {
 
     protected void AbrirMarca() {
         ve.jfmarca.setMinimumSize(new Dimension(200, 220));
-        ve.jfmarca.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.jfmarca.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.jfmarca.setResizable(false);
         ve.jfmarca.setLocationRelativeTo(ve);
         ve.jfmarca.setVisible(true);

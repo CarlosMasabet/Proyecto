@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Usuarios;
+import proyecto.Proyecto;
 import vista.Inicial;
 import vista.Login;
 
@@ -36,7 +37,7 @@ public class Clogin implements ActionListener, KeyListener {
         this.ve = ve;
         this.us = us;
         
-        ml = new MouseLogin(ve);
+        ml = new MouseLogin(ve, Proyecto.color);
 
         ve.btnentrar.addActionListener(this);
         ve.btnentrar.addKeyListener(this);

@@ -2,14 +2,15 @@
 package vista;
 
 import controlador.utilidades.Menu;
-import controlador.utilidades.Imagen; 
+import controlador.utilidades.Imagenes; 
+import proyecto.Proyecto;
 /**
  *
  * @author Carlos Masabet
  */
 public class Vequipos extends javax.swing.JFrame {
 
-     Menu m=new Menu();
+     Menu m = new Menu(Proyecto.img);
      
     public Vequipos() {
         initComponents();
@@ -176,11 +177,13 @@ public class Vequipos extends javax.swing.JFrame {
         cbmarca.setBackground(new java.awt.Color(0, 134, 190));
         cbmarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbmarca.setForeground(new java.awt.Color(255, 255, 255));
+        cbmarca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
 
         cbmodelo.setBackground(new java.awt.Color(0, 134, 190));
         cbmodelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbmodelo.setForeground(new java.awt.Color(255, 255, 255));
+        cbmodelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbmodelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbmodeloActionPerformed(evt);
@@ -201,6 +204,7 @@ public class Vequipos extends javax.swing.JFrame {
         cbdepartamentos.setBackground(new java.awt.Color(0, 134, 190));
         cbdepartamentos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         cbdepartamentos.setForeground(new java.awt.Color(255, 255, 255));
+        cbdepartamentos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbdepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 170, -1));
 
         jfañadir.getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -312,6 +316,7 @@ public class Vequipos extends javax.swing.JFrame {
 
         btnnewModelo.setBackground(new java.awt.Color(0, 134, 190));
         btnnewModelo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnnewModelo.setForeground(new java.awt.Color(255, 255, 255));
         btnnewModelo.setText("Agregar");
         btnnewModelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel4.add(btnnewModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 110, -1));
@@ -342,7 +347,9 @@ public class Vequipos extends javax.swing.JFrame {
         txtserialperi.setBorder(null);
         jPanel5.add(txtserialperi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 140, -1));
 
+        cbtipoperi.setBackground(new java.awt.Color(0, 134, 190));
         cbtipoperi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbtipoperi.setForeground(new java.awt.Color(255, 255, 255));
         cbtipoperi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbtipoperi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -667,12 +674,12 @@ public class Vequipos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD=new Imagenes();
         flechaD.bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseEntered
 
     private void btnmenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseExited
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD=new Imagenes();
         flechaD.no_bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseExited
 

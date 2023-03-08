@@ -1,13 +1,13 @@
-
 package vista;
 
-import controlador.utilidades.Imagen;
+import controlador.utilidades.Imagenes;
 import controlador.utilidades.Menu;
+import proyecto.Proyecto;
 
 public class Vreportes extends javax.swing.JFrame {
 
-    Menu m=new Menu();
-    
+    Menu m = new Menu(Proyecto.img);
+
     public Vreportes() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -206,17 +206,17 @@ public class Vreportes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD = new Imagenes();
         flechaD.bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseEntered
 
     private void btnmenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseExited
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD = new Imagenes();
         flechaD.no_bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseExited
 
     private void btnsalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseClicked
-        Inicial atras=new Inicial();
+        Inicial atras = new Inicial();
         atras.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalir2MouseClicked

@@ -2,8 +2,6 @@
 package controlador.ventanas.login;
 
 import controlador.utilidades.Colores;
-import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import vista.Login;
@@ -11,10 +9,12 @@ import vista.Login;
 
 public class MouseLogin implements MouseListener{
     private Login ve;
+    private Colores col;
 
-    public MouseLogin(Login ve) {
+    public MouseLogin(Login ve, Colores col) {
         this.ve = ve;
-        
+        this.col = col;
+
         ve.btnentrar.addMouseListener(this);
     }
 
@@ -33,12 +33,12 @@ public class MouseLogin implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent me) {
-        ve.btnentrar.setBackground(new Color(Colores.BONTON_ACTIVO));
+        col.oscuro(ve.btnentrar);
     }
 
     @Override
     public void mouseExited(MouseEvent me) {
-        ve.btnentrar.setBackground(new Color(Colores.BONTON_VACIO));
+        col.claro(ve.btnentrar);
     }
     
 }

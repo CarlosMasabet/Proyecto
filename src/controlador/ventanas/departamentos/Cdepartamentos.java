@@ -1,4 +1,4 @@
-package controlador.ventanas;
+package controlador.ventanas.departamentos;
 
 import controlador.ventanas.login.Clogin;
 import controlador.consultas.SQLdepartamentos;
@@ -7,21 +7,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import modelo.Departamentos;
+import proyecto.Proyecto;
 import vista.Vdepartamentos;
 
 public class Cdepartamentos implements ActionListener {
 
-    SQLdepartamentos sql;
-    Vdepartamentos ve;
+    private SQLdepartamentos sql;
+    private Vdepartamentos ve;
+    private MouseDepa md;
 
     public Cdepartamentos(SQLdepartamentos sql, Vdepartamentos ve) {
         this.sql = sql;
         this.ve = ve;
-
-        ve.btnabriragregar.addActionListener(this);
-        ve.btnabrirasignar.addActionListener(this);
-        ve.btnabrirmodificar.addActionListener(this);
-        ve.btnabrirsolicitud.addActionListener(this);
+        
+        md = new MouseDepa(ve, Proyecto.color);
+        
+        ve.btnAbrirAgregar.addActionListener(this);
+        ve.btnAbrirAsignar.addActionListener(this);
+        ve.btnAbrirModificar.addActionListener(this);
+        ve.btnAbrirSolicitud.addActionListener(this);
         ve.btnagregar.addActionListener(this);
 
         ve.cbtipobusqueda.addActionListener(this);
@@ -35,30 +39,30 @@ public class Cdepartamentos implements ActionListener {
         ve.txtbuscar.setVisible(false);
         ve.Separado.setVisible(false);
 
-        ve.btnabriragregar.setVisible(Clogin.Admin);
+        ve.btnAbrirAgregar.setVisible(Clogin.Admin);
 
         llenadoTabla();
 
         ve.setSize(new Dimension(627, 520));
         ve.setResizable(false);
         ve.setTitle(Clogin.NomUsuario);
-        ve.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.setLocationRelativeTo(null);
         ve.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(ve.btnabriragregar)) {
+        if (e.getSource().equals(ve.btnAbrirAgregar)) {
             abrirAgregarDepa();
         }
-        if (e.getSource().equals(ve.btnabrirasignar)) {
+        if (e.getSource().equals(ve.btnAbrirAsignar)) {
             abrirAsignar();
         }
-        if (e.getSource().equals(ve.btnabrirmodificar)) {
+        if (e.getSource().equals(ve.btnAbrirModificar)) {
             abrirModificarDepa();
         }
-        if (e.getSource().equals(ve.btnabrirsolicitud)) {
+        if (e.getSource().equals(ve.btnAbrirSolicitud)) {
             abrirSolicitud();
         }
         if (e.getSource().equals(ve.cbtipobusqueda)) {
@@ -86,7 +90,7 @@ public class Cdepartamentos implements ActionListener {
 
         ve.jfagregar.setSize(new Dimension(360, 290));
         ve.jfagregar.setResizable(false);
-        ve.jfagregar.setIconImage(proyecto.Proyecto.icono.getImage());
+        ve.jfagregar.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.jfagregar.setLocationRelativeTo(ve);
         ve.jfagregar.setVisible(true);
     }

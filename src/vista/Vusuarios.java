@@ -1,20 +1,18 @@
-
 package vista;
 
-import AppPackage.AnimationClass;
-import controlador.utilidades.Imagen;
+import controlador.utilidades.Imagenes;
 import controlador.utilidades.Menu;
+import proyecto.Proyecto;
 
 public class Vusuarios extends javax.swing.JFrame {
 
-    Menu m=new Menu();
-    
+    Menu m = new Menu(Proyecto.img);
+
     public Vusuarios() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -53,7 +51,7 @@ public class Vusuarios extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtusuarios = new javax.swing.JTable();
-        btnabrir_añadir = new javax.swing.JButton();
+        btnabrirAñadir = new javax.swing.JButton();
         btnabrirMod = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         btnabrirModDat = new javax.swing.JButton();
@@ -156,8 +154,9 @@ public class Vusuarios extends javax.swing.JFrame {
         jLabel5.setText("Codigo del usuario");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 210, -1));
 
-        cbtipoUs.setBackground(new java.awt.Color(225, 232, 236));
+        cbtipoUs.setBackground(new java.awt.Color(0, 134, 190));
         cbtipoUs.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbtipoUs.setForeground(new java.awt.Color(255, 255, 255));
         cbtipoUs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Regular", "Sin permisos" }));
         cbtipoUs.setBorder(null);
         cbtipoUs.addActionListener(new java.awt.event.ActionListener() {
@@ -262,17 +261,17 @@ public class Vusuarios extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 410, 500));
 
-        btnabrir_añadir.setBackground(new java.awt.Color(0, 134, 190));
-        btnabrir_añadir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnabrir_añadir.setForeground(new java.awt.Color(255, 255, 255));
-        btnabrir_añadir.setText("Añadir Usuario");
-        btnabrir_añadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnabrir_añadir.addActionListener(new java.awt.event.ActionListener() {
+        btnabrirAñadir.setBackground(new java.awt.Color(0, 134, 190));
+        btnabrirAñadir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnabrirAñadir.setForeground(new java.awt.Color(255, 255, 255));
+        btnabrirAñadir.setText("Añadir Usuario");
+        btnabrirAñadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnabrirAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnabrir_añadirActionPerformed(evt);
+                btnabrirAñadirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnabrir_añadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        jPanel1.add(btnabrirAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         btnabrirMod.setBackground(new java.awt.Color(0, 134, 190));
         btnabrirMod.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -292,6 +291,7 @@ public class Vusuarios extends javax.swing.JFrame {
         btnabrirModDat.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnabrirModDat.setForeground(new java.awt.Color(255, 255, 255));
         btnabrirModDat.setText("Modificar Datos");
+        btnabrirModDat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnabrirModDat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 620, 500));
@@ -455,21 +455,21 @@ public class Vusuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btngraficasMouseExited
 //menu
     private void btnmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseClicked
-       m.menu_accion(btnmenu, btnequipos, btngraficas, btnpersonas, btnsolicitudes);
+        m.menu_accion(btnmenu, btnequipos, btngraficas, btnpersonas, btnsolicitudes);
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD = new Imagenes();
         flechaD.bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseEntered
 
     private void btnmenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseExited
-        Imagen flechaD=new Imagen();
+        Imagenes flechaD = new Imagenes();
         flechaD.no_bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseExited
 
     private void btnsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirMouseClicked
-        Inicial atras=new Inicial();
+        Inicial atras = new Inicial();
         atras.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalirMouseClicked
@@ -486,9 +486,9 @@ public class Vusuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnom_usActionPerformed
 
-    private void btnabrir_añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrir_añadirActionPerformed
+    private void btnabrirAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnabrirAñadirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnabrir_añadirActionPerformed
+    }//GEN-LAST:event_btnabrirAñadirActionPerformed
 
     private void txtCpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpassActionPerformed
         // TODO add your handling code here:
@@ -540,9 +540,9 @@ public class Vusuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JSeparator Separator1;
     public javax.swing.JSeparator Separator2;
+    public javax.swing.JButton btnabrirAñadir;
     public javax.swing.JButton btnabrirMod;
     public javax.swing.JButton btnabrirModDat;
-    public javax.swing.JButton btnabrir_añadir;
     public javax.swing.JButton btnagregar_us;
     public javax.swing.JButton btneliminar;
     private javax.swing.JLabel btnequipos;
