@@ -78,13 +78,13 @@ public class Menu {
     public void reportes_entra(JLabel boton, JLabel txt) {
         img.bordes(boton);
         txt.setText("Reportes");
-        img.cambio_img(boton, Imagenes.REPORTES_PEQUEÑO);
+        //img.cambio_img(boton, Imagenes.REPORTES_PEQUEÑO);
     }
 
     public void reportes_sale(JLabel boton, JLabel txt) {
         img.no_bordes(boton);
         txt.setText("");
-        img.cambio_img(boton, Imagenes.REPORTES);
+        //img.cambio_img(boton, Imagenes.REPORTES);
     }
 
     public void reportes_click(JFrame ventana) {

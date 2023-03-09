@@ -67,8 +67,6 @@ public class Vdepartamentos extends javax.swing.JFrame {
         btnperifericos = new javax.swing.JLabel();
         txtusuarios = new javax.swing.JLabel();
         btnusuarios = new javax.swing.JLabel();
-        txtgraficas = new javax.swing.JLabel();
-        btndepa = new javax.swing.JLabel();
         txtAtras = new javax.swing.JLabel();
         btnmenu = new javax.swing.JLabel();
         btnsalir2 = new javax.swing.JLabel();
@@ -254,6 +252,7 @@ public class Vdepartamentos extends javax.swing.JFrame {
                 "Periferico", "Serial"
             }
         ));
+        jtperifericos1.setShowHorizontalLines(false);
         jScrollPane2.setViewportView(jtperifericos1);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 140, 200));
@@ -293,10 +292,10 @@ public class Vdepartamentos extends javax.swing.JFrame {
         fondobotones.add(btnequipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 50, 50));
 
         txtpersonas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        fondobotones.add(txtpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 60, -1));
+        fondobotones.add(txtpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 70, -1));
 
         btnperifericos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnperifericos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/carne-de-identidad1.png"))); // NOI18N
+        btnperifericos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/perifericos40.png"))); // NOI18N
         btnperifericos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnperifericos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -329,25 +328,6 @@ public class Vdepartamentos extends javax.swing.JFrame {
             }
         });
         fondobotones.add(btnusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 50, 50));
-
-        txtgraficas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fondobotones.add(txtgraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 50, -1));
-
-        btndepa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btndepa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/grafico-de-linea1.png"))); // NOI18N
-        btndepa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btndepa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btndepaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btndepaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btndepaMouseExited(evt);
-            }
-        });
-        fondobotones.add(btndepa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 50, 50));
 
         txtAtras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondobotones.add(txtAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 90, -1));
@@ -395,7 +375,7 @@ public class Vdepartamentos extends javax.swing.JFrame {
         btnAbrirModificar.setForeground(new java.awt.Color(255, 255, 255));
         btnAbrirModificar.setText("Cambiar Datos");
         btnAbrirModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnAbrirModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 150, -1));
+        jPanel1.add(btnAbrirModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 170, -1));
 
         btndetalles.setBackground(new java.awt.Color(0, 134, 190));
         btndetalles.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -403,7 +383,7 @@ public class Vdepartamentos extends javax.swing.JFrame {
         btndetalles.setText("Detalles");
         btndetalles.setToolTipText("");
         btndetalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btndetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 150, -1));
+        jPanel1.add(btndetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 170, -1));
 
         btnAbrirAsignar.setBackground(new java.awt.Color(0, 134, 190));
         btnAbrirAsignar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -415,7 +395,7 @@ public class Vdepartamentos extends javax.swing.JFrame {
                 btnAbrirAsignarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAbrirAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 240, 150, -1));
+        jPanel1.add(btnAbrirAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 170, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(225, 232, 236));
 
@@ -431,6 +411,7 @@ public class Vdepartamentos extends javax.swing.JFrame {
                 "Departamento", "Jefe", "Contacto"
             }
         ));
+        jtdepartamentos.setShowHorizontalLines(false);
         jScrollPane1.setViewportView(jtdepartamentos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 500));
@@ -440,34 +421,35 @@ public class Vdepartamentos extends javax.swing.JFrame {
         btnAbrirSolicitud.setForeground(new java.awt.Color(255, 255, 255));
         btnAbrirSolicitud.setText("Crear Solicitud");
         btnAbrirSolicitud.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnAbrirSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 330, -1, -1));
+        jPanel1.add(btnAbrirSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 170, -1));
 
         cbtipobusqueda.setBackground(new java.awt.Color(0, 134, 190));
         cbtipobusqueda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbtipobusqueda.setForeground(new java.awt.Color(255, 255, 255));
-        cbtipobusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar", "Departamento", "Jefe" }));
+        cbtipobusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar", "Departamento", "Serial" }));
         cbtipobusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(cbtipobusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+        jPanel1.add(cbtipobusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 170, -1));
 
         cbbuscar.setBackground(new java.awt.Color(0, 134, 190));
         cbbuscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbbuscar.setForeground(new java.awt.Color(255, 255, 255));
         cbbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(cbbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 120, -1));
+        jPanel1.add(cbbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 170, -1));
 
         txtbuscar.setBackground(new java.awt.Color(225, 232, 236));
         txtbuscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtbuscar.setBorder(null);
-        jPanel1.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 130, -1));
+        jPanel1.add(txtbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 170, -1));
 
         Separado.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(Separado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 140, 20));
+        jPanel1.add(Separado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 170, 20));
 
         cbtabla.setBackground(new java.awt.Color(0, 134, 190));
+        cbtabla.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbtabla.setForeground(new java.awt.Color(255, 255, 255));
-        cbtabla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departamentos", "Asignaciones", "Solicitudes" }));
+        cbtabla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Departamentos", "Asignaciones" }));
         cbtabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(cbtabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        jPanel1.add(cbtabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 170, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 710, 500));
 
@@ -509,17 +491,9 @@ public class Vdepartamentos extends javax.swing.JFrame {
     private void btnusuariosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuariosMouseExited
         m.usuarios_sale(btnusuarios, txtusuarios);
     }//GEN-LAST:event_btnusuariosMouseExited
-//graficos
-    private void btndepaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepaMouseEntered
-        m.departamento_entra(btndepa, txtgraficas);
-    }//GEN-LAST:event_btndepaMouseEntered
-
-    private void btndepaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepaMouseExited
-        m.departamento_sale(btndepa, txtgraficas);
-    }//GEN-LAST:event_btndepaMouseExited
 //menu
     private void btnmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseClicked
-       m.menu_accion(btnmenu, btnequipos, btnperifericos, btnusuarios, btndepa);
+       //m.menu_accion(btnmenu, btnequipos, btnperifericos, btnusuarios, btndepa);
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
@@ -537,10 +511,6 @@ public class Vdepartamentos extends javax.swing.JFrame {
         atras.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalir2MouseClicked
-//graficos click
-    private void btndepaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepaMouseClicked
-        m.departamento_click(this);
-    }//GEN-LAST:event_btndepaMouseClicked
 
     private void btnAbrirAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirAsignarActionPerformed
         // TODO add your handling code here:
@@ -592,7 +562,6 @@ public class Vdepartamentos extends javax.swing.JFrame {
     public javax.swing.JButton btnReasignar;
     public javax.swing.JButton btnactualizar;
     public javax.swing.JButton btnagregar;
-    private javax.swing.JLabel btndepa;
     public javax.swing.JButton btndetalles;
     private javax.swing.JLabel btnequipos;
     private javax.swing.JLabel btnmenu;
@@ -641,7 +610,6 @@ public class Vdepartamentos extends javax.swing.JFrame {
     public javax.swing.JLabel txtdetserial;
     public javax.swing.JLabel txtdetususario;
     private javax.swing.JLabel txtequipo;
-    private javax.swing.JLabel txtgraficas;
     public javax.swing.JTextField txtncontacto;
     public javax.swing.JTextField txtndepa;
     public javax.swing.JTextField txtnjefe;

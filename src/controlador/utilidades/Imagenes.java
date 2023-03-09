@@ -15,17 +15,17 @@ public class Imagenes {
     public static final String COMPUTADORA = "imagenes/menu/computadora1.png";
     public static final String COMPUTADORA_PEQUEÑO = "imagenes/menu/computadora1-p.png";
     
-    public static final String REPORTES = "imagenes/menu/documento1.png";
-    public static final String REPORTES_PEQUEÑO = "imagenes/menu/documento1-p.png";
+    //public static final String REPORTES = "imagenes/menu/documento1.png";
+    //public static final String REPORTES_PEQUEÑO = "imagenes/menu/documento1-p.png";
     
-    public static final String PERIFERICOS = "imagenes/menu/carne-de-identidad1.png";
-    public static final String PERIFERICOS_PEQUEÑO = "imagenes/menu/carne-de-identidad1-p.png";
+    public static final String PERIFERICOS = "imagenes/menu/perifericos40.png";
+    public static final String PERIFERICOS_PEQUEÑO = "imagenes/menu/perifericos30.png";
     
     public static final String USUARIOS = "imagenes/menu/usuario1.png";
     public static final String USUARIOS_PEQUEÑO = "imagenes/menu/usuario1-p.png";
     
-    public static final String DEPARTAMENTOS = "imagenes/menu/grafico-de-linea1.png";
-    public static final String DEPARTAMENTOS_PEQUEÑO = "imagenes/menu/grafico-de-linea1-p.png";
+    public static final String DEPARTAMENTOS = "imagenes/menu/dpto40.png";
+    public static final String DEPARTAMENTOS_PEQUEÑO = "imagenes/menu/dpto30.png";
     
     //public static final String = "";
     

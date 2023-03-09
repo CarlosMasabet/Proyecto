@@ -1,6 +1,9 @@
 package controlador.consultas;
 
+import controlador.utilidades.Colores;
 import controlador.utilidades.Tablas;
+import java.awt.Color;
+import java.awt.Font;
 import modelo.Usuarios;
 import java.sql.*;
 import javax.swing.JTable;
@@ -17,7 +20,17 @@ public class SQLusuarios extends Conexion_SQL {
         MODELO = new Tablas(COLUMNAS, 0);
 
         tabla.setModel(MODELO);
+        
+        tabla.setFocusable(false);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.getTableHeader().setBackground(Color.black);
+        tabla.getTableHeader().setForeground(Color.WHITE);
+        tabla.getTableHeader().setFont(new Font("time new roman", Font.BOLD, 12));
+        tabla.getTableHeader().setOpaque(false);
+        tabla.setSelectionForeground(Color.WHITE);
+        tabla.setSelectionBackground(Colores.BONTON_CLARO);
+        tabla.setBackground(Color.WHITE);
+        tabla.setRowHeight(20);
     }
     
     

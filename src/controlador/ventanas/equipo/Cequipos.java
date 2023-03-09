@@ -85,7 +85,7 @@ public class Cequipos implements ActionListener {
     protected void iniciar() {
         ve.setTitle(Clogin.NomUsuario);
         ve.setFocusable(true);
-        ve.setPreferredSize(new Dimension(800, 500));
+        ve.setSize(new Dimension(800, 500));
         ve.setLocationRelativeTo(null);
         ve.setResizable(false);
         ve.setVisible(true);
@@ -557,11 +557,6 @@ public class Cequipos implements ActionListener {
                 buscando = false;
                 break;
 
-            case 155://usuario
-                buscar = ve.txtbusqueda.getText();
-                buscando = true;
-                break;
-
             case 1://marca
                 int nMarca = ve.cbbusqueda.getSelectedIndex();
                 buscar = ve.cbbusqueda.getItemAt(nMarca);
@@ -571,13 +566,6 @@ public class Cequipos implements ActionListener {
 
             case 2://serial
                 buscar = ve.txtbusqueda.getText();
-                buscando = true;
-                break;
-
-            case 4://estado
-                ve.cbbusModelos.removeAllItems();
-                int nEsatdo = ve.cbbusqueda.getSelectedIndex();
-                buscar = ve.cbbusqueda.getItemAt(nEsatdo);
                 buscando = true;
                 break;
         }

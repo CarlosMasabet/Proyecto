@@ -74,8 +74,6 @@ public class Vperifericos extends javax.swing.JFrame {
         btnequipos = new javax.swing.JLabel();
         txtusuarios = new javax.swing.JLabel();
         btnusuarios = new javax.swing.JLabel();
-        txtsolicitudes = new javax.swing.JLabel();
-        btnsolicitudes = new javax.swing.JLabel();
         txtgraficas = new javax.swing.JLabel();
         btngraficas = new javax.swing.JLabel();
         txtAtras = new javax.swing.JLabel();
@@ -127,6 +125,7 @@ public class Vperifericos extends javax.swing.JFrame {
                 "Periferico", "Serial"
             }
         ));
+        jtperifericos1.setShowHorizontalLines(false);
         jScrollPane2.setViewportView(jtperifericos1);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 140, 200));
@@ -263,6 +262,7 @@ public class Vperifericos extends javax.swing.JFrame {
                 "Serial", "Periferico", "PC Asignada"
             }
         ));
+        jtperifericos.setShowHorizontalLines(false);
         jScrollPane1.setViewportView(jtperifericos);
 
         fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 500));
@@ -327,9 +327,9 @@ public class Vperifericos extends javax.swing.JFrame {
         btntipo.setBackground(new java.awt.Color(0, 134, 190));
         btntipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btntipo.setForeground(new java.awt.Color(255, 255, 255));
-        btntipo.setText("tipo");
+        btntipo.setText("Crear");
         btntipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.add(btntipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
+        fondo.add(btntipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
 
         Separador.setForeground(new java.awt.Color(0, 0, 0));
         fondo.add(Separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 130, 10));
@@ -378,30 +378,11 @@ public class Vperifericos extends javax.swing.JFrame {
         });
         fondobotones.add(btnusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 50, 50));
 
-        txtsolicitudes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fondobotones.add(txtsolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 70, -1));
-
-        btnsolicitudes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnsolicitudes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/documento1.png"))); // NOI18N
-        btnsolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnsolicitudesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnsolicitudesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnsolicitudesMouseExited(evt);
-            }
-        });
-        fondobotones.add(btnsolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 50, 50));
-
         txtgraficas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fondobotones.add(txtgraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 50, -1));
+        fondobotones.add(txtgraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 80, -1));
 
         btngraficas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btngraficas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/grafico-de-linea1.png"))); // NOI18N
+        btngraficas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/dpto40.png"))); // NOI18N
         btngraficas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btngraficas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -414,7 +395,7 @@ public class Vperifericos extends javax.swing.JFrame {
                 btngraficasMouseExited(evt);
             }
         });
-        fondobotones.add(btngraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 50, 50));
+        fondobotones.add(btngraficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 50, 50));
 
         txtAtras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fondobotones.add(txtAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 90, -1));
@@ -474,18 +455,6 @@ public class Vperifericos extends javax.swing.JFrame {
     private void btnusuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuariosMouseClicked
         m.usuarios_click(this);
     }//GEN-LAST:event_btnusuariosMouseClicked
-//boton solicitudes
-    private void btnsolicitudesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsolicitudesMouseEntered
-        m.reportes_entra(btnsolicitudes, txtsolicitudes);
-    }//GEN-LAST:event_btnsolicitudesMouseEntered
-
-    private void btnsolicitudesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsolicitudesMouseExited
-        m.reportes_sale(btnsolicitudes, txtsolicitudes);
-    }//GEN-LAST:event_btnsolicitudesMouseExited
-
-    private void btnsolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsolicitudesMouseClicked
-        m.reportes_click(this);
-    }//GEN-LAST:event_btnsolicitudesMouseClicked
 //boton graficas
     private void btngraficasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btngraficasMouseEntered
         m.departamento_entra(btngraficas, txtgraficas);
@@ -496,7 +465,7 @@ public class Vperifericos extends javax.swing.JFrame {
     }//GEN-LAST:event_btngraficasMouseExited
 //boton menu
     private void btnmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseClicked
-        m.menu_accion(btnmenu, btnequipos, btnsolicitudes, btngraficas, btnusuarios);
+        //m.menu_accion(btnmenu, btnequipos, btnsolicitudes, btngraficas, btnusuarios);
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
@@ -577,7 +546,6 @@ public class Vperifericos extends javax.swing.JFrame {
     public javax.swing.JButton btnnuevoperi;
     public javax.swing.JButton btnreasignar;
     private javax.swing.JLabel btnsalir2;
-    private javax.swing.JLabel btnsolicitudes;
     public javax.swing.JButton btntipo;
     private javax.swing.JLabel btnusuarios;
     public javax.swing.JComboBox<String> cbbuscar;
@@ -619,7 +587,6 @@ public class Vperifericos extends javax.swing.JFrame {
     public javax.swing.JLabel txtreasigserial;
     public javax.swing.JTextField txtserialpc;
     public javax.swing.JTextField txtserialperi;
-    private javax.swing.JLabel txtsolicitudes;
     private javax.swing.JLabel txtusuarios;
     // End of variables declaration//GEN-END:variables
 }

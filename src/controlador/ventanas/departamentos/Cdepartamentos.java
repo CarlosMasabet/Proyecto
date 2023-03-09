@@ -19,6 +19,7 @@ public class Cdepartamentos implements ActionListener {
     private Vdepartamentos ve;
     private MouseDepa md;
     private Departamentos depa;
+    private TecladoDepa td;
 
     public static String tabla;
     public static boolean seleccionado = false;
@@ -33,6 +34,9 @@ public class Cdepartamentos implements ActionListener {
         this.ve = ve;
 
         md = new MouseDepa(ve, Proyecto.color);
+        td = new TecladoDepa(this);
+        
+        ve.txtbuscar.addKeyListener(td);
 
         ve.btnAbrirAgregar.addActionListener(this);
         ve.btnagregar.addActionListener(this);
@@ -63,6 +67,8 @@ public class Cdepartamentos implements ActionListener {
         ve.cbbuscar.setVisible(false);
         ve.txtbuscar.setVisible(false);
         ve.Separado.setVisible(false);
+        
+        ve.btnAbrirSolicitud.setVisible(false);
 
         ve.btnAbrirAgregar.setVisible(Clogin.Admin);
 
@@ -128,6 +134,11 @@ public class Cdepartamentos implements ActionListener {
 
                 ve.btnAbrirModificar.setVisible(true);
                 ve.btndetalles.setVisible(false);
+                ve.cbtipobusqueda.setVisible(false);
+                ve.txtbuscar.setVisible(false);
+                ve.Separado.setVisible(false);
+                ve.cbbuscar.setVisible(false);
+
                 ve.btnAbrirAsignar.setText("Asignar Equipo");
                 break;
 
@@ -137,6 +148,7 @@ public class Cdepartamentos implements ActionListener {
 
                 ve.btnAbrirModificar.setVisible(false);
                 ve.btndetalles.setVisible(true);
+                ve.cbtipobusqueda.setVisible(true);
                 ve.btnAbrirAsignar.setText("Reasignar Equipo");
                 break;
 
@@ -304,7 +316,6 @@ public class Cdepartamentos implements ActionListener {
 
         switch (tipo) {
             case 0:// nada por defecto
-                cambioTabala(DEPAS);
                 ve.cbbuscar.setVisible(false);
                 ve.txtbuscar.setVisible(false);
                 ve.Separado.setVisible(false);
@@ -324,7 +335,7 @@ public class Cdepartamentos implements ActionListener {
                 ve.cbbuscar.setVisible(true);
                 break;
 
-            case 2://busqueda por el nombre del jefe
+            case 2://busqueda por el serial
                 ve.cbbuscar.removeAllItems();
                 ve.cbbuscar.setVisible(false);
 
@@ -335,7 +346,42 @@ public class Cdepartamentos implements ActionListener {
         }
     }
 
-    private void buscar() {
+    protected void buscar() {
+        int selector = ve.cbtipobusqueda.getSelectedIndex();
+        String buscar = null;
+        Boolean buscando = false;
+        switch (selector) {
+            case 0: //nada, por defecto
+                cambioTabala(ASIGNACIONES);
+                buscando = false;
+                break;
+
+            case 1://departamentos
+                int ndepa = ve.cbbuscar.getSelectedIndex();
+                buscar = ve.cbbuscar.getItemAt(ndepa);
+                buscando = true;
+                break;
+
+            case 2://serial
+                buscar = ve.txtbuscar.getText();
+                buscando = true;
+                break;
+        }
+        if (buscando) {
+
+            if (sql.Buscar(selector, buscar, ve.jtdepartamentos)) {
+                //llena la segunda barra desplegable con los modelos en la parte de para buscar
+                /*int mar = ve.cbbusqueda.getSelectedIndex();
+                ve.cbbusModelos.removeAllItems();
+
+                if (mar != 0) {
+                    sql.cbModelo(ve.cbbusModelos, mar + 1);
+                }*/
+
+            } else {
+                JOptionPane.showMessageDialog(ve, "Error en la busqueda");
+            }
+        }
     }
 
     private void vaciarCampos() {

@@ -1,6 +1,9 @@
 package controlador.consultas;
 
+import controlador.utilidades.Colores;
 import controlador.utilidades.Tablas;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -22,7 +25,17 @@ public class SQLperifericos extends Conexion_SQL {
         }
 
         tabla.setModel(MODELO);
+        
+        tabla.setFocusable(false);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.getTableHeader().setBackground(Color.black);
+        tabla.getTableHeader().setForeground(Color.WHITE);
+        tabla.getTableHeader().setFont(new Font("time new roman", Font.BOLD, 18));
+        tabla.getTableHeader().setOpaque(false);
+        tabla.setSelectionForeground(Color.WHITE);
+        tabla.setSelectionBackground(Colores.BONTON_CLARO);
+        tabla.setBackground(Color.WHITE);
+        tabla.setRowHeight(20);
     }
     
     //CRUD
@@ -34,6 +47,8 @@ public class SQLperifericos extends Conexion_SQL {
         String sql = "SELECT l.desc, p.serial FROM perifericos as p INNER JOIN lista AS l On p.tipo = l.idlista WHERE p.pc = ?";
         try {
             seteoTabla(tabla, 1);
+            
+            tabla.getTableHeader().setFont(new Font("time new roman", Font.BOLD, 12));
 
             ps = con.prepareCall(sql);
             ps.setInt(1, id);

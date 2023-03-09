@@ -1,6 +1,9 @@
 package controlador.consultas;
 
+import controlador.utilidades.Colores;
 import controlador.utilidades.Tablas;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -23,7 +26,17 @@ public class SQLdepartamentos extends Conexion_SQL {
         }
 
         tabla.setModel(MODELO);
+        
+        tabla.setFocusable(false);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.getTableHeader().setBackground(Color.black);
+        tabla.getTableHeader().setForeground(Color.WHITE);
+        tabla.getTableHeader().setFont(new Font("time new roman", Font.BOLD, 12));
+        tabla.getTableHeader().setOpaque(false);
+        tabla.setSelectionForeground(Color.WHITE);
+        tabla.setSelectionBackground(Colores.BONTON_CLARO);
+        tabla.setBackground(Color.WHITE);
+        tabla.setRowHeight(20);
     }
 
     //llenado de las tablas
@@ -101,6 +114,53 @@ public class SQLdepartamentos extends Conexion_SQL {
             }
         }
 
+    }
+    
+    public Boolean Buscar(int selector, String buscar, JTable tabla) {
+        PreparedStatement ps = null;
+        ResultSet rs;
+        Connection con = getConnection();
+
+        String sql = null;
+        switch (selector) {
+
+            case 1:// departamento
+                sql = "select ma.nombre, pc.serial,  dep.nombre from pc_dep as pd inner join pc on pd.pc_id = pc.id inner join departamentos as dep on pd.dep_id = dep.id inner join marca as ma on pc.Marca = ma.id where dep.nombre = ?;";
+                break;
+
+            case 2://serial
+                sql = "select ma.nombre, pc.serial,  dep.nombre from pc_dep as pd inner join pc on pd.pc_id = pc.id inner join departamentos as dep on pd.dep_id = dep.id inner join marca as ma on pc.Marca = ma.id where pc.serial = ?;";
+                break;
+        }
+        try {
+            seteoTabla(tabla, 2);
+
+            ps = con.prepareStatement(sql);
+            ps.setString(1, buscar);
+            rs = ps.executeQuery();
+
+            ResultSetMetaData MD = rs.getMetaData();
+            int num_t = MD.getColumnCount();
+
+            while (rs.next()) {
+                Object[] lista = new Object[num_t];
+                for (int i = 0; i < num_t; i++) {
+                    lista[i] = rs.getObject(i + 1);
+                }
+                MODELO.addRow(lista);
+            }
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
+            return false;
+
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                System.out.println("Error: " + e);
+            }
+        }
     }
 
     //CRUD

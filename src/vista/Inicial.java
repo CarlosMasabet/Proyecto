@@ -47,8 +47,6 @@ public class Inicial extends javax.swing.JFrame {
         btnusuarios2 = new javax.swing.JLabel();
         graficas = new javax.swing.JLabel();
         btndepartamentos = new javax.swing.JLabel();
-        solicitudes = new javax.swing.JLabel();
-        btnreportes = new javax.swing.JLabel();
         btnsalir2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,7 +94,7 @@ public class Inicial extends javax.swing.JFrame {
         equipos.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         equipos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         equipos.setText("Equipos");
-        fondo_botones.add(equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 140, -1));
+        fondo_botones.add(equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 140, -1));
 
         btnequio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnequio2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/computadora.png"))); // NOI18N
@@ -112,15 +110,15 @@ public class Inicial extends javax.swing.JFrame {
                 btnequio2MouseExited(evt);
             }
         });
-        fondo_botones.add(btnequio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 140, 140));
+        fondo_botones.add(btnequio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 140, 140));
 
         personas.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         personas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         personas.setText("Perifericos");
-        fondo_botones.add(personas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 140, -1));
+        fondo_botones.add(personas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 140, -1));
 
         btnperifericos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnperifericos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/carne-de-identidad.png"))); // NOI18N
+        btnperifericos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/perifericos100.png"))); // NOI18N
         btnperifericos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnperifericos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,7 +131,7 @@ public class Inicial extends javax.swing.JFrame {
                 btnperifericosMouseExited(evt);
             }
         });
-        fondo_botones.add(btnperifericos, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 140, 140));
+        fondo_botones.add(btnperifericos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 140, 140));
 
         usuarios.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         usuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -162,7 +160,7 @@ public class Inicial extends javax.swing.JFrame {
         fondo_botones.add(graficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 140, -1));
 
         btndepartamentos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btndepartamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/grafico-de-linea.png"))); // NOI18N
+        btndepartamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dpto100.png"))); // NOI18N
         btndepartamentos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btndepartamentos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -176,28 +174,6 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
         fondo_botones.add(btndepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 140, 140));
-
-        solicitudes.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        solicitudes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        solicitudes.setText("Reportes");
-        fondo_botones.add(solicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 140, -1));
-
-        btnreportes.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        btnreportes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnreportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/documento.png"))); // NOI18N
-        btnreportes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnreportes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnreportesMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnreportesMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnreportesMouseExited(evt);
-            }
-        });
-        fondo_botones.add(btnreportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 140, 140));
 
         btnsalir2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnsalir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-izquierda.png"))); // NOI18N
@@ -270,12 +246,12 @@ public class Inicial extends javax.swing.JFrame {
 //boton perosnas
     private void btnperifericosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseEntered
         bordes(btnperifericos);
-        cambio_img(btnperifericos, "imagenes/carne-de-identidad-p.png");
+        cambio_img(btnperifericos, "imagenes/perifericos85.png");
     }//GEN-LAST:event_btnperifericosMouseEntered
 
     private void btnperifericosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseExited
         no_bordes(btnperifericos);
-        cambio_img(btnperifericos, "imagenes/carne-de-identidad.png");
+        cambio_img(btnperifericos, "imagenes/perifericos100.png");
     }//GEN-LAST:event_btnperifericosMouseExited
 
     private void btnperifericosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseClicked
@@ -314,12 +290,12 @@ public class Inicial extends javax.swing.JFrame {
 //boton de grafica
     private void btndepartamentosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseEntered
         bordes(btndepartamentos);
-        cambio_img(btndepartamentos, "imagenes/grafico-de-linea-p.png");
+        cambio_img(btndepartamentos, "imagenes/dpto85.png");
     }//GEN-LAST:event_btndepartamentosMouseEntered
 
     private void btndepartamentosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseExited
         no_bordes(btndepartamentos);
-        cambio_img(btndepartamentos, "imagenes/grafico-de-linea.png");
+        cambio_img(btndepartamentos, "imagenes/dpto100.png");
     }//GEN-LAST:event_btndepartamentosMouseExited
 
     private void btndepartamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseClicked
@@ -358,26 +334,6 @@ public class Inicial extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnsalir2MouseClicked
-//boton solicitudes
-    private void btnreportesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnreportesMouseEntered
-        bordes(btnreportes);
-        cambio_img(btnreportes, "imagenes/documento-p.png");
-    }//GEN-LAST:event_btnreportesMouseEntered
-
-    private void btnreportesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnreportesMouseExited
-        no_bordes(btnreportes);
-        cambio_img(btnreportes, "imagenes/documento.png");
-    }//GEN-LAST:event_btnreportesMouseExited
-
-    private void btnreportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnreportesMouseClicked
-        if(!ventana){
-            ventana = true;
-            Vreportes a = new Vreportes();
-            a.setVisible(true);
-            this.setVisible(false);
-        }
-        
-    }//GEN-LAST:event_btnreportesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -418,7 +374,6 @@ public class Inicial extends javax.swing.JFrame {
     private javax.swing.JLabel btndepartamentos;
     private javax.swing.JLabel btnequio2;
     private javax.swing.JLabel btnperifericos;
-    private javax.swing.JLabel btnreportes;
     private javax.swing.JLabel btnsalir2;
     private javax.swing.JLabel btnusuarios2;
     private javax.swing.JLabel equipos;
@@ -427,7 +382,6 @@ public class Inicial extends javax.swing.JFrame {
     private javax.swing.JLabel graficas;
     private javax.swing.JLabel logo;
     private javax.swing.JLabel personas;
-    private javax.swing.JLabel solicitudes;
     private java.awt.Panel titulo;
     private javax.swing.JLabel titulo1;
     private javax.swing.JLabel titulo2;

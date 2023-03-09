@@ -1,6 +1,9 @@
 package controlador.consultas;
 
+import controlador.utilidades.Colores;
 import controlador.utilidades.Tablas;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
@@ -21,7 +24,16 @@ public class SQLequipos extends Conexion_SQL {
         MODELO = new Tablas(COLUMNAS, 0);
 
         tabla.setModel(MODELO);
+        tabla.setFocusable(false);
         tabla.getTableHeader().setReorderingAllowed(false);
+        tabla.getTableHeader().setBackground(Color.black);
+        tabla.getTableHeader().setForeground(Color.WHITE);
+        tabla.getTableHeader().setFont(new Font("time new roman", Font.BOLD, 18));
+        tabla.getTableHeader().setOpaque(false);
+        tabla.setSelectionForeground(Color.WHITE);
+        tabla.setSelectionBackground(Colores.BONTON_CLARO);
+        tabla.setBackground(Color.WHITE);
+        tabla.setRowHeight(20);
     }
 
     //CRUD
