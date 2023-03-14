@@ -1,7 +1,6 @@
 package controlador.utilidades;
 
 import controlador.ventanas.usuarios.Cusuarios;
-import AppPackage.AnimationClass;
 import controlador.consultas.SQLdepartamentos;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,7 +28,7 @@ public class Menu {
     }
 
     
-    public void menu_accion(JLabel menu, JLabel boton1, JLabel boton2, JLabel boton3, JLabel boton4) {
+   /* public void menu_accion(JLabel menu, JLabel boton1, JLabel boton2, JLabel boton3, JLabel boton4) {
         AnimationClass entrar = new AnimationClass();
         entrar.jLabelXRight(-50, 10, 15, 5, boton1);
         entrar.jLabelXRight(-50, 10, 15, 5, boton2);
@@ -49,7 +48,7 @@ public class Menu {
             img.cambio_img(menu, Imagenes.FLECHA_DERECHA);
             derecha = true;
         }
-    }
+    }*/
 
     public void equipos_entra(JLabel boton, JLabel txt) {
         img.bordes(boton);
@@ -66,7 +65,7 @@ public class Menu {
     public void equipos_click(JFrame ventana) {
         if(!cambio){
             cambio = true;
-            SQLequipos sql = new SQLequipos();
+            SQLequipos sql = SQLequipos.getInstance();
             Vequipos ve = new Vequipos();
 
             Cequipos ce = new Cequipos(sql, ve);
@@ -113,7 +112,7 @@ public class Menu {
         if(!cambio){
             cambio = true;
             Vperifericos b = new Vperifericos();
-            SQLperifericos sql = new SQLperifericos();
+            SQLperifericos sql = SQLperifericos.getInstance();
 
             Cperifericos cp = new Cperifericos(sql, b);
             ventana.setVisible(false);
@@ -136,7 +135,7 @@ public class Menu {
     public void usuarios_click(JFrame ventana) {
         if(!cambio){
             cambio = true;
-            SQLusuarios sql = new SQLusuarios();
+            SQLusuarios sql = SQLusuarios.getInstance();
             Vusuarios a = new Vusuarios();
 
             Cusuarios cus = new Cusuarios(sql, a);
@@ -161,7 +160,7 @@ public class Menu {
         if(!cambio){
             cambio = true;
             Vdepartamentos b = new Vdepartamentos();
-            SQLdepartamentos dep = new SQLdepartamentos();
+            SQLdepartamentos dep = SQLdepartamentos.getInstance();
 
             Cdepartamentos cd = new Cdepartamentos(dep, b);
             ventana.setVisible(false);

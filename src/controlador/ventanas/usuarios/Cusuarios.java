@@ -127,7 +127,7 @@ public class Cusuarios implements ActionListener {
             vaciarDatos();
 
         } else {
-            JOptionPane.showMessageDialog(ve.jfañadir_us, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve.jfañadir_us, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -207,7 +207,7 @@ public class Cusuarios implements ActionListener {
             }
 
         } else {//confirma el tipo de usurio
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
     }
 

@@ -2,6 +2,7 @@ package controlador.ventanas.login;
 
 import controlador.utilidades.Hash;
 import controlador.consultas.SQLusuarios;
+import controlador.ventanas.CInicial;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,7 +31,7 @@ public class Clogin implements ActionListener, KeyListener {
     public static Boolean Admin = false;
     public static Boolean Regular = false;
     public static String NomUsuario;
-    public static final String SIN_PERMISO = "Usted no tiene permiso para realizar esta acción";
+    
 
     public Clogin(SQLusuarios sql, Login ve, Usuarios us) {
         this.sql = sql;
@@ -47,7 +48,9 @@ public class Clogin implements ActionListener, KeyListener {
     }
 
     private void Iniciar() {
+        ve.setSize(907, 565);
         ve.setResizable(false);
+        //new Imagenes().cambio_tam(ve.logo, "imagenes/logopequeño.png");
         ve.setLocationRelativeTo(null);
         ve.setVisible(true);
     }
@@ -81,13 +84,13 @@ public class Clogin implements ActionListener, KeyListener {
                 switch (sql.InicioSesion(us)) {
 
                     case 0: // 0 = entrar
-                        Inicial i = new Inicial();
-                        i.setVisible(true);
+                        Inicial i = Inicial.getInstance();
+                        CInicial ci = new CInicial(i);
                         ventana = true;
                         ve.setVisible(false);
 
                         NomUsuario = us.getNombre();
-                        i.setTitle(NomUsuario);
+                        i.txtus.setText(NomUsuario);
                         break;
 
                     case 1: // 1 = error de contraseña

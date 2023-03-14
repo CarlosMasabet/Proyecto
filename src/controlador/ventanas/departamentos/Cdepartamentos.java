@@ -235,7 +235,7 @@ public class Cdepartamentos implements ActionListener {
             }
 
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -266,7 +266,7 @@ public class Cdepartamentos implements ActionListener {
             }
 
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -276,7 +276,7 @@ public class Cdepartamentos implements ActionListener {
         if (Clogin.Admin || Clogin.Regular) {
 
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
     }
 
@@ -395,7 +395,7 @@ public class Cdepartamentos implements ActionListener {
         String serialEq = ve.txtSerialEq.getText();
 
         if (!serialEq.equals("") && !depa.equals("")) {//confirma que se llenaron los compos 
-            SQLequipos eq = new SQLequipos();
+            SQLequipos eq = SQLequipos.getInstance();
 
             if (eq.validaPC(serialEq) != 0) {//confirma que el equipo ya exista
 
@@ -436,7 +436,7 @@ public class Cdepartamentos implements ActionListener {
 
         if (a != inicial && !serialPc.equals("")) {//confirma que se haya cambiado el departemento
 
-            SQLequipos eq = new SQLequipos();
+            SQLequipos eq = SQLequipos.getInstance();
 
             int idpc = eq.getid(serialPc);
             int iddepa = sql.getId(depa);
@@ -456,7 +456,7 @@ public class Cdepartamentos implements ActionListener {
 
     private void verDetalles() {
         if (seleccionado) {
-            SQLequipos sqle = new SQLequipos();
+            SQLequipos sqle = SQLequipos.getInstance();
 
             Equipos equipo = sqle.getEquipo(MouseDepa.serial);
             ve.txtdetmarca.setText("Marca: " + equipo.getMarcaP());
@@ -472,7 +472,7 @@ public class Cdepartamentos implements ActionListener {
             } else {
                 ve.txtdetdepar.setText("Ubicación: Sin asignar");
             }
-            SQLperifericos peri = new SQLperifericos();
+            SQLperifericos peri = SQLperifericos.getInstance();
 
             peri.tablaDetalles(equipo.getId(), ve.jtperifericos1);
 

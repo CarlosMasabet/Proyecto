@@ -10,11 +10,23 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class SQLusuarios extends Conexion_SQL {
-
+    
+    private static SQLusuarios instance;
     public String error;
     
     private final String COLUMNAS[] = {"Codigo", "Nombre", "Ultima sesión", "Tipo de usuario"};
     private DefaultTableModel MODELO;
+
+    private SQLusuarios() {
+    }      
+    
+    //singleton
+    public static SQLusuarios getInstance(){
+        if (instance == null){
+            instance = new SQLusuarios();
+        }
+        return instance;
+    }
     
     private void seteoTabla(JTable tabla) {
         MODELO = new Tablas(COLUMNAS, 0);

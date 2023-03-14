@@ -8,20 +8,17 @@ import java.sql.*;
  */
 public class Conexion_SQL {
 
-    private final String USER = "root";
-    private final String PASS = "123456";
-    private final String BD = "mydb";
-    private final String URL = "jdbc:mysql://localhost:3306/" + BD;
-    Connection con = null;
+    private static final String USER = "root";
+    private static final String PASS = "123456";
+    private static final String BD = "mydb";
+    private static final String URL = "jdbc:mysql://localhost:3306/" + BD;
+    private static Connection con = null;
 
-    /**
-     *
-     * @return
-     */
-    public Connection getConnection() {
+
+    public static Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(this.URL, this.USER, this.PASS);
+            con = DriverManager.getConnection(URL, USER, PASS);
         } catch (Exception e) {
             System.out.println(e);
         }

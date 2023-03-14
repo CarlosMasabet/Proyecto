@@ -2,6 +2,7 @@ package vista;
 
 import controlador.utilidades.Imagenes;
 import controlador.utilidades.Menu;
+import controlador.ventanas.CInicial;
 import proyecto.Proyecto;
 
 public class Vusuarios extends javax.swing.JFrame {
@@ -439,8 +440,8 @@ public class Vusuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuMouseExited
 
     private void btnsalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalirMouseClicked
-        Inicial atras = new Inicial();
-        atras.setVisible(true);
+        Inicial atras = Inicial.getInstance();
+        CInicial ci = new CInicial(atras);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalirMouseClicked
 //grafica click

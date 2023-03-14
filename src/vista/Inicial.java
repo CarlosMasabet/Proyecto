@@ -1,53 +1,76 @@
-
 package vista;
 
+import controlador.consultas.Reportes;
 import controlador.consultas.SQLdepartamentos;
 import controlador.consultas.SQLequipos;
 import controlador.consultas.SQLperifericos;
 import controlador.ventanas.usuarios.Cusuarios;
 import controlador.consultas.SQLusuarios;
+import controlador.utilidades.Colores;
+import controlador.utilidades.respaldos.Recuperacion;
+import controlador.utilidades.respaldos.Respaldos;
 import controlador.ventanas.login.Clogin;
 import controlador.ventanas.perifericos.Cperifericos;
 import controlador.ventanas.departamentos.Cdepartamentos;
 import controlador.ventanas.equipo.Cequipos;
 import java.awt.Color;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 import modelo.Usuarios;
+import proyecto.Proyecto;
 
 public class Inicial extends javax.swing.JFrame {
 
     private boolean ventana = false;
-    
-    public Inicial() {
-        setTitle(Clogin.NomUsuario);
+    private static Inicial instance;
+
+    private Inicial() {
+        //setTitle(Clogin.NomUsuario);
+        //txtus.setText(Clogin.NomUsuario);
         setIconImage(proyecto.Proyecto.ICONO.getImage());
         initComponents();
+        this.setSize(Proyecto.TAMAÑO);
         this.setLocationRelativeTo(null);
+        
+        equipos.setVisible(false);
+        perifericos.setVisible(false);
+        usuarios.setVisible(false);
+        departamentos.setVisible(false);
+
     }
 
-    
+    //singleton
+    public static Inicial getInstance() {
+        if (instance == null) {
+            instance = new Inicial();
+        }
+        return instance;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         fondo = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
-        titulo = new java.awt.Panel();
-        titulo1 = new javax.swing.JLabel();
-        titulo2 = new javax.swing.JLabel();
-        fondo_botones = new javax.swing.JPanel();
         equipos = new javax.swing.JLabel();
         btnequio2 = new javax.swing.JLabel();
-        personas = new javax.swing.JLabel();
+        perifericos = new javax.swing.JLabel();
         btnperifericos = new javax.swing.JLabel();
         usuarios = new javax.swing.JLabel();
         btnusuarios2 = new javax.swing.JLabel();
-        graficas = new javax.swing.JLabel();
+        departamentos = new javax.swing.JLabel();
         btndepartamentos = new javax.swing.JLabel();
         btnsalir2 = new javax.swing.JLabel();
+        btnRecuperar = new javax.swing.JLabel();
+        btnRespaldo = new javax.swing.JLabel();
+        cbTipoPDF = new javax.swing.JComboBox<>();
+        cbContenidoPDF = new javax.swing.JComboBox<>();
+        btnGenerar = new javax.swing.JLabel();
+        txtus = new javax.swing.JLabel();
+        fon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -55,49 +78,14 @@ public class Inicial extends javax.swing.JFrame {
         fondo.setBackground(new java.awt.Color(225, 232, 236));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logopequeño.png"))); // NOI18N
-        fondo.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, -1, -1));
-
-        titulo1.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
-        titulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo1.setText("Base de Datos");
-
-        titulo2.setFont(new java.awt.Font("Roboto", 0, 48)); // NOI18N
-        titulo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo2.setText("De Equipos");
-
-        javax.swing.GroupLayout tituloLayout = new javax.swing.GroupLayout(titulo);
-        titulo.setLayout(tituloLayout);
-        tituloLayout.setHorizontalGroup(
-            tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tituloLayout.createSequentialGroup()
-                .addGroup(tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(titulo1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                    .addComponent(titulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        tituloLayout.setVerticalGroup(
-            tituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tituloLayout.createSequentialGroup()
-                .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titulo2)
-                .addContainerGap())
-        );
-
-        fondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 400, 130));
-
-        fondo_botones.setBackground(new java.awt.Color(225, 232, 236));
-        fondo_botones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        equipos.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        equipos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        equipos.setForeground(Colores.AZUL);
         equipos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         equipos.setText("Equipos");
-        fondo_botones.add(equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 140, -1));
+        fondo.add(equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 210, -1));
 
         btnequio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnequio2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/computadora.png"))); // NOI18N
+        btnequio2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inicial/EQUIPOS.png"))); // NOI18N
         btnequio2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnequio2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,15 +98,16 @@ public class Inicial extends javax.swing.JFrame {
                 btnequio2MouseExited(evt);
             }
         });
-        fondo_botones.add(btnequio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 140, 140));
+        fondo.add(btnequio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 210, 210));
 
-        personas.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        personas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        personas.setText("Perifericos");
-        fondo_botones.add(personas, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 140, -1));
+        perifericos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        perifericos.setForeground(Colores.AZUL);
+        perifericos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        perifericos.setText("Perifericos");
+        fondo.add(perifericos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 210, 20));
 
         btnperifericos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnperifericos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/perifericos100.png"))); // NOI18N
+        btnperifericos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inicial/PERIFERICOS.png"))); // NOI18N
         btnperifericos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnperifericos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -131,15 +120,16 @@ public class Inicial extends javax.swing.JFrame {
                 btnperifericosMouseExited(evt);
             }
         });
-        fondo_botones.add(btnperifericos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 140, 140));
+        fondo.add(btnperifericos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 210, 210));
 
-        usuarios.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        usuarios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        usuarios.setForeground(Colores.AZUL);
         usuarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usuarios.setText("Usuarios");
-        fondo_botones.add(usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 140, -1));
+        fondo.add(usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 210, -1));
 
         btnusuarios2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnusuarios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/usuario.png"))); // NOI18N
+        btnusuarios2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inicial/USUARIOS.png"))); // NOI18N
         btnusuarios2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnusuarios2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -152,15 +142,16 @@ public class Inicial extends javax.swing.JFrame {
                 btnusuarios2MouseExited(evt);
             }
         });
-        fondo_botones.add(btnusuarios2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 140, 140));
+        fondo.add(btnusuarios2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 210, 210));
 
-        graficas.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        graficas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        graficas.setText("Departamentos");
-        fondo_botones.add(graficas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 140, -1));
+        departamentos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        departamentos.setForeground(Colores.AZUL);
+        departamentos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        departamentos.setText("Departamentos");
+        fondo.add(departamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 210, -1));
 
         btndepartamentos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btndepartamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dpto100.png"))); // NOI18N
+        btndepartamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inicial/DPTO.png"))); // NOI18N
         btndepartamentos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btndepartamentos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -173,10 +164,9 @@ public class Inicial extends javax.swing.JFrame {
                 btndepartamentosMouseExited(evt);
             }
         });
-        fondo_botones.add(btndepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 140, 140));
+        fondo.add(btndepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 210, 210));
 
         btnsalir2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnsalir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-izquierda.png"))); // NOI18N
         btnsalir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsalir2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -189,151 +179,323 @@ public class Inicial extends javax.swing.JFrame {
                 btnsalir2MouseExited(evt);
             }
         });
-        fondo_botones.add(btnsalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 100, 80));
+        fondo.add(btnsalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 527, 110, 25));
 
-        fondo.add(fondo_botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 800, 320));
+        btnRecuperar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnRecuperar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRecuperar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRecuperar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRecuperarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRecuperarMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnRecuperarMousePressed(evt);
+            }
+        });
+        fondo.add(btnRecuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 150, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        btnRespaldo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnRespaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnRespaldo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRespaldo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRespaldoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRespaldoMouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnRespaldoMouseReleased(evt);
+            }
+        });
+        fondo.add(btnRespaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 150, 40));
+
+        cbTipoPDF.setBackground(Colores.ROJO);
+        cbTipoPDF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbTipoPDF.setForeground(new java.awt.Color(255, 255, 255));
+        cbTipoPDF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Equipos", "Perifericos" }));
+        cbTipoPDF.setBorder(null);
+        cbTipoPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbTipoPDF.setFocusable(false);
+        cbTipoPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoPDFActionPerformed(evt);
+            }
+        });
+        fondo.add(cbTipoPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 230, 180, 30));
+
+        cbContenidoPDF.setBackground(Colores.ROJO);
+        cbContenidoPDF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        cbContenidoPDF.setForeground(new java.awt.Color(255, 255, 255));
+        cbContenidoPDF.setBorder(null);
+        cbContenidoPDF.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbContenidoPDF.setFocusable(false);
+        fondo.add(cbContenidoPDF, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 355, 180, 30));
+
+        btnGenerar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnGenerar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnGenerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inicial/GENERAR_R.png"))); // NOI18N
+        btnGenerar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGenerar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGenerarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnGenerarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnGenerarMouseExited(evt);
+            }
+        });
+        fondo.add(btnGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(758, 442, 140, 30));
+
+        txtus.setForeground(new java.awt.Color(255, 255, 255));
+        txtus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        fondo.add(txtus, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 20, 120, 20));
+
+        fon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/INICIO.png"))); // NOI18N
+        fondo.add(fon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 562));
+
+        getContentPane().add(fondo, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
-    public void cambio_img(JLabel j,String ruta){
-        ImageIcon imagen=new ImageIcon(ruta);
-        Icon icono=new ImageIcon(imagen.getImage());
-        j.setIcon(icono);
+    public void bordes(JLabel a) {
+        a.setBorder(javax.swing.BorderFactory.createLineBorder(Color.WHITE));
     }
-    public void bordes(JLabel a){
-        a.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
-    }
-    public void no_bordes(JLabel b){
-        b.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225,232,236)));
+
+    public void no_bordes(JLabel b) {
+        b.setBorder(javax.swing.BorderFactory.createLineBorder(Colores.AZUL));
     }
 //boton de equipos
     private void btnequio2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequio2MouseEntered
-        bordes(btnequio2);
-        cambio_img(btnequio2, "imagenes/computadora-p.png");
+        Proyecto.img.bordes(btnequio2);
+        equipos.setVisible(true);
+        Proyecto.img.cambio_img(btnequio2, "imagenes/inicial/EQUIPOS_P.png");
     }//GEN-LAST:event_btnequio2MouseEntered
 
     private void btnequio2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequio2MouseExited
-        no_bordes(btnequio2);
-        cambio_img(btnequio2, "imagenes/computadora.png");
+        Proyecto.img.no_bordes(btnequio2);
+        equipos.setVisible(false);
+        Proyecto.img.cambio_img(btnequio2, "imagenes/inicial/EQUIPOS.png");
     }//GEN-LAST:event_btnequio2MouseExited
 
     private void btnequio2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequio2MouseClicked
-        if(!ventana){
+        if (!ventana) {
             ventana = true;
-            SQLequipos sql = new SQLequipos();
+            SQLequipos sql = SQLequipos.getInstance();
             Vequipos ve = new Vequipos();
 
             Cequipos ce = new Cequipos(sql, ve);
             this.setVisible(false);
+            ventana = false;
         }
-        
+
     }//GEN-LAST:event_btnequio2MouseClicked
 //boton perosnas
     private void btnperifericosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseEntered
-        bordes(btnperifericos);
-        cambio_img(btnperifericos, "imagenes/perifericos85.png");
+        Proyecto.img.bordes(btnperifericos);
+        perifericos.setVisible(true);
+        Proyecto.img.cambio_img(btnperifericos, "imagenes/inicial/PERIFERICOS_P.png");
     }//GEN-LAST:event_btnperifericosMouseEntered
 
     private void btnperifericosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseExited
-        no_bordes(btnperifericos);
-        cambio_img(btnperifericos, "imagenes/perifericos100.png");
+        Proyecto.img.no_bordes(btnperifericos);
+        perifericos.setVisible(false);
+        Proyecto.img.cambio_img(btnperifericos, "imagenes/inicial/PERIFERICOS.png");
     }//GEN-LAST:event_btnperifericosMouseExited
 
     private void btnperifericosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseClicked
-        if(!ventana){
+        if (!ventana) {
             ventana = true;
             Vperifericos a = new Vperifericos();
-            SQLperifericos sql = new SQLperifericos();
+            SQLperifericos sql = SQLperifericos.getInstance();
 
             Cperifericos cp = new Cperifericos(sql, a);
             this.setVisible(false);
+            ventana = false;
         }
-        
+
     }//GEN-LAST:event_btnperifericosMouseClicked
 //boton de usuarios
     private void btnusuarios2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuarios2MouseEntered
-        bordes(btnusuarios2);
-        cambio_img(btnusuarios2, "imagenes/usuario-p.png");
+        Proyecto.img.bordes(btnusuarios2);
+        usuarios.setVisible(true);
+        Proyecto.img.cambio_img(btnusuarios2, "imagenes/inicial/USUARIOS_P.png");
     }//GEN-LAST:event_btnusuarios2MouseEntered
 
     private void btnusuarios2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuarios2MouseExited
-        no_bordes(btnusuarios2);
-        cambio_img(btnusuarios2, "imagenes/usuario.png");
+        Proyecto.img.no_bordes(btnusuarios2);
+        usuarios.setVisible(false);
+        Proyecto.img.cambio_img(btnusuarios2, "imagenes/inicial/USUARIOS.png");
     }//GEN-LAST:event_btnusuarios2MouseExited
 
     private void btnusuarios2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuarios2MouseClicked
-        if(!ventana){
+        if (!ventana) {
             ventana = true;
-            SQLusuarios sql = new SQLusuarios();
+            SQLusuarios sql = SQLusuarios.getInstance();
             Vusuarios a = new Vusuarios();
 
             Cusuarios cus = new Cusuarios(sql, a);
             this.setVisible(false);
+            ventana = false;
         }
-        
+
     }//GEN-LAST:event_btnusuarios2MouseClicked
 //boton de grafica
     private void btndepartamentosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseEntered
-        bordes(btndepartamentos);
-        cambio_img(btndepartamentos, "imagenes/dpto85.png");
+        Proyecto.img.bordes(btndepartamentos);
+        departamentos.setVisible(true);
+        Proyecto.img.cambio_img(btndepartamentos, "imagenes/inicial/DPTO_P.png");
     }//GEN-LAST:event_btndepartamentosMouseEntered
 
     private void btndepartamentosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseExited
-        no_bordes(btndepartamentos);
-        cambio_img(btndepartamentos, "imagenes/dpto100.png");
+        Proyecto.img.no_bordes(btndepartamentos);
+        departamentos.setVisible(false);
+        Proyecto.img.cambio_img(btndepartamentos, "imagenes/inicial/DPTO.png");
     }//GEN-LAST:event_btndepartamentosMouseExited
 
     private void btndepartamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseClicked
-        if(!ventana){
+        if (!ventana) {
             ventana = true;
             Vdepartamentos a = new Vdepartamentos();
-            SQLdepartamentos dep = new SQLdepartamentos();
+            SQLdepartamentos dep = SQLdepartamentos.getInstance();
 
             Cdepartamentos cd = new Cdepartamentos(dep, a);
             this.setVisible(false);
+            ventana = false;
         }
-        
+
     }//GEN-LAST:event_btndepartamentosMouseClicked
 //boton salir
     private void btnsalir2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseEntered
-        cambio_img(btnsalir2, "imagenes/flecha-izquierda-p.png");
         bordes(btnsalir2);
     }//GEN-LAST:event_btnsalir2MouseEntered
 
     private void btnsalir2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseExited
-        cambio_img(btnsalir2, "imagenes/flecha-izquierda.png");
         no_bordes(btnsalir2);
     }//GEN-LAST:event_btnsalir2MouseExited
 
     private void btnsalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseClicked
         int salir = JOptionPane.showConfirmDialog(this, "¿Quieres cerrar sesion?");
         System.out.println(salir);
-        if(salir == 0){
-            SQLusuarios sql = new SQLusuarios();
+        if (salir == 0) {
+            SQLusuarios sql = SQLusuarios.getInstance();
             Usuarios us = new Usuarios();
             Login ve = new Login();
             ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
 
             Clogin cl = new Clogin(sql, ve, us);
             this.setVisible(false);
+            ventana = false;
         }
-        
+
     }//GEN-LAST:event_btnsalir2MouseClicked
+
+    private void btnRespaldoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRespaldoMouseReleased
+        if (Clogin.Admin) {
+            Respaldos res = new Respaldos();
+
+            res.respaldar();
+        } else {
+            JOptionPane.showMessageDialog(this, Proyecto.SIN_PERMISO);
+        }
+    }//GEN-LAST:event_btnRespaldoMouseReleased
+
+    private void btnRecuperarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecuperarMousePressed
+        if (Clogin.Admin) {
+            int num = JOptionPane.showConfirmDialog(this, "¿Esta seguro que desea recuperar la base de datos?\nLas información que no se encuentre en el archivo\nde respaldo se perdera\n");
+
+            if (num == 0) {
+                Recuperacion rec = new Recuperacion();
+                rec.recuperacion();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, Proyecto.SIN_PERMISO);
+        }
+    }//GEN-LAST:event_btnRecuperarMousePressed
+
+    private void btnGenerarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarMouseClicked
+
+        Reportes rep = Reportes.getInstance();
+        
+        int tipoPDF = cbTipoPDF.getSelectedIndex();
+        int contenidoPDF = cbContenidoPDF.getSelectedIndex();
+
+        switch (tipoPDF) {
+            case 0:// no pasa nada
+                JOptionPane.showMessageDialog(this, "Debe seleccionar el tipo de reporte a generar");
+                break;
+
+            case 1://reporte de equipos
+                if (contenidoPDF == 0) {
+                    
+                    JOptionPane.showMessageDialog(this, "Debe seleccionar el contenido del reporte");
+                    
+                } else {
+                    
+                    if (contenidoPDF == 1){
+                        
+                        rep.reporteGeneral();
+                        
+                        System.out.println("reporte general de equipos"); 
+                    } else {
+                        String depa = cbContenidoPDF.getItemAt(contenidoPDF);
+                        rep.reporteDepartamentos(depa);
+                        System.out.println("reporte de equipos del departamento " + depa);
+                    }
+                    
+                }
+                break;
+
+            case 2://reporte segun perifericos
+                if (contenidoPDF == 0){
+                    
+                    JOptionPane.showMessageDialog(this, "Debe seleccionar el contenido del reporte");
+                    
+                } else {
+                    String peri = cbContenidoPDF.getItemAt(contenidoPDF);
+                    rep.reportePerifericos(peri);
+                    System.out.println("reporte de los " + peri);
+                }
+                
+                break;
+        }
+    }//GEN-LAST:event_btnGenerarMouseClicked
+
+    private void cbTipoPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoPDFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTipoPDFActionPerformed
+
+    private void btnRespaldoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRespaldoMouseEntered
+        bordes(btnRespaldo);
+    }//GEN-LAST:event_btnRespaldoMouseEntered
+
+    private void btnRespaldoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRespaldoMouseExited
+        no_bordes(btnRespaldo);
+    }//GEN-LAST:event_btnRespaldoMouseExited
+
+    private void btnRecuperarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecuperarMouseEntered
+        bordes(btnRecuperar);
+    }//GEN-LAST:event_btnRecuperarMouseEntered
+
+    private void btnRecuperarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecuperarMouseExited
+        no_bordes(btnRecuperar);
+    }//GEN-LAST:event_btnRecuperarMouseExited
+
+    private void btnGenerarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarMouseEntered
+        Proyecto.img.cambio_img(btnGenerar, "imagenes/inicial/GENERAR_A.png");
+    }//GEN-LAST:event_btnGenerarMouseEntered
+
+    private void btnGenerarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarMouseExited
+        Proyecto.img.cambio_img(btnGenerar, "imagenes/inicial/GENERAR_R.png");
+    }//GEN-LAST:event_btnGenerarMouseExited
 
     /**
      * @param args the command line arguments
@@ -371,20 +533,22 @@ public class Inicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JLabel btnGenerar;
+    private javax.swing.JLabel btnRecuperar;
+    private javax.swing.JLabel btnRespaldo;
     private javax.swing.JLabel btndepartamentos;
     private javax.swing.JLabel btnequio2;
     private javax.swing.JLabel btnperifericos;
     private javax.swing.JLabel btnsalir2;
     private javax.swing.JLabel btnusuarios2;
+    public javax.swing.JComboBox<String> cbContenidoPDF;
+    public javax.swing.JComboBox<String> cbTipoPDF;
+    private javax.swing.JLabel departamentos;
     private javax.swing.JLabel equipos;
+    private javax.swing.JLabel fon;
     private javax.swing.JPanel fondo;
-    private javax.swing.JPanel fondo_botones;
-    private javax.swing.JLabel graficas;
-    private javax.swing.JLabel logo;
-    private javax.swing.JLabel personas;
-    private java.awt.Panel titulo;
-    private javax.swing.JLabel titulo1;
-    private javax.swing.JLabel titulo2;
+    private javax.swing.JLabel perifericos;
+    public javax.swing.JLabel txtus;
     private javax.swing.JLabel usuarios;
     // End of variables declaration//GEN-END:variables
 }

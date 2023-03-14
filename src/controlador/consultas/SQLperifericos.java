@@ -11,10 +11,23 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Perifericos;
 
 public class SQLperifericos extends Conexion_SQL {
+    
+    private static SQLperifericos instance;
 
     private final String COLUMNAS1[] = {"Periferico", "serial"};
     private final String COLUMNAS2[] = {"Serial", "Periferico", "PC"};
     private DefaultTableModel MODELO;
+
+    private SQLperifericos() {
+    }
+    
+    //singleton
+    public static SQLperifericos getInstance(){
+        if (instance == null){
+            instance = new SQLperifericos();
+        }
+        return instance;
+    }
 
     private void seteoTabla(JTable tabla,int columna) {
         
@@ -313,7 +326,7 @@ public class SQLperifericos extends Conexion_SQL {
         }
     }
 
-    public void getLista(JComboBox cb) {
+    public void cbPerifericos(JComboBox cb) {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConnection();

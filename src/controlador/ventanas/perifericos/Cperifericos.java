@@ -119,7 +119,7 @@ public class Cperifericos implements ActionListener {
         if (Clogin.Regular || Clogin.Admin) {
 
             vaciarCampos();
-            sql.getLista(ve.cbtipoperi);
+            sql.cbPerifericos(ve.cbtipoperi);
 
             ve.cbtipoperi.setVisible(true);
             ve.txtserialperi.setVisible(true);
@@ -135,13 +135,13 @@ public class Cperifericos implements ActionListener {
             ve.jfañadir.setLocationRelativeTo(ve);
             ve.jfañadir.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
     }
 
     private void abrirdetalles() {
         if (seleccionado) {
-            SQLequipos sqle = new SQLequipos();
+            SQLequipos sqle = SQLequipos.getInstance();
 
             Equipos equipo = sqle.getEquipo(PC);
             ve.txtdetmarca.setText("Marca: " + equipo.getMarcaP());
@@ -202,7 +202,7 @@ public class Cperifericos implements ActionListener {
                 JOptionPane.showMessageDialog(ve, "Debe seleccionar un periferico");
             }
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -234,7 +234,7 @@ public class Cperifericos implements ActionListener {
 
         if (!serial.equals("") && !serialPc.equals("")) {//valida que los campos no esten vaios
 
-            SQLequipos eq = new SQLequipos();
+            SQLequipos eq = SQLequipos.getInstance();
             int pc = eq.getid(serialPc);
             int tipo = sql.getIdLista(periferico);
 
@@ -284,7 +284,7 @@ public class Cperifericos implements ActionListener {
 
         if (!serialPc.equals("")) {//valida que los campos no esten vaios
 
-            SQLequipos eq = new SQLequipos();
+            SQLequipos eq = SQLequipos.getInstance();
             int pc = eq.getid(serialPc);
             int tipo = sql.getIdLista(periferico);
             
@@ -324,7 +324,7 @@ public class Cperifericos implements ActionListener {
         if (Clogin.Admin) {
 
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
     }
 
@@ -351,7 +351,7 @@ public class Cperifericos implements ActionListener {
 
             case 2://busca por tipo de periferico
                 ve.cbbuscar.removeAllItems();
-                sql.getLista(ve.cbbuscar);
+                sql.cbPerifericos(ve.cbbuscar);
                 ve.cbbuscar.setVisible(true);
                 ve.txtbuscar.setVisible(false);
                 ve.Separador.setVisible(false);

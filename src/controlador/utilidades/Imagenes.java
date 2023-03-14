@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 
 public class Imagenes {
     
+
+
     //rutas de las imagenes 
     public static final String FLECHA_IZQUIERDA = "imagenes/menu/izquierda.png";
     public static final String FLECHA_DERECHA = "imagenes/menu/derecha.png";
@@ -52,6 +54,6 @@ public class Imagenes {
 
     //le quita los margenes a un label
     public void no_bordes(JLabel j) {
-        j.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(225, 232, 236)));
+        j.setBorder(javax.swing.BorderFactory.createLineBorder(Colores.GRIS_CLARO));
     }
 }

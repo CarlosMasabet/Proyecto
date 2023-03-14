@@ -198,7 +198,7 @@ public class Cequipos implements ActionListener {
             sql.cbMarca(ve.cbmarca);
             ve.cbmarca.setSelectedIndex(0);
 
-            SQLdepartamentos dep = new SQLdepartamentos();
+            SQLdepartamentos dep = SQLdepartamentos.getInstance();
             ve.cbdepartamentos.removeAllItems();
             dep.cbDepa(ve.cbdepartamentos);
 
@@ -214,7 +214,7 @@ public class Cequipos implements ActionListener {
 
             VaciarCampos();
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -238,7 +238,7 @@ public class Cequipos implements ActionListener {
             } else {
                 ve.txtdetdepar.setText("Ubicación: Sin asignar");
             }
-            SQLperifericos peri = new SQLperifericos();
+            SQLperifericos peri = SQLperifericos.getInstance();
             peri.tablaDetalles(det.getId(), ve.jtperifericos);
 
             ve.jfdetalles.setMinimumSize(new Dimension(350, 390));
@@ -267,7 +267,7 @@ public class Cequipos implements ActionListener {
             Equipos mod = eq;
 
             ve.cbdepartamentos.removeAllItems();
-            SQLdepartamentos dep = new SQLdepartamentos();
+            SQLdepartamentos dep = SQLdepartamentos.getInstance();
             dep.cbDepa(ve.cbdepartamentos);
             ve.cbdepartamentos.setSelectedItem(dep.getAsig(mod.getId()));
 
@@ -289,7 +289,7 @@ public class Cequipos implements ActionListener {
             ve.jfañadir.setVisible(true);
 
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -303,8 +303,8 @@ public class Cequipos implements ActionListener {
 
             Equipos pe = sql.getEquipo(SERIAL);
 
-            SQLperifericos peri = new SQLperifericos();
-            peri.getLista(ve.cbtipoperi);
+            SQLperifericos peri = SQLperifericos.getInstance();
+            peri.cbPerifericos(ve.cbtipoperi);
             ve.txtserialpc.setText(pe.getSerial());
 
             ve.jfperiferico.setResizable(false);
@@ -314,7 +314,7 @@ public class Cequipos implements ActionListener {
             ve.jfperiferico.setVisible(true);
 
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -362,7 +362,7 @@ public class Cequipos implements ActionListener {
                     //asignacion del equipo
                     Equipos o = sql.getEquipo(nuevo.getSerial());
 
-                    SQLdepartamentos depa = new SQLdepartamentos();
+                    SQLdepartamentos depa = SQLdepartamentos.getInstance();
                     int d = ve.cbdepartamentos.getSelectedIndex();
                     String a = ve.cbdepartamentos.getItemAt(d);
 
@@ -417,7 +417,7 @@ public class Cequipos implements ActionListener {
             }
 
         } else {
-            JOptionPane.showMessageDialog(ve, Clogin.SIN_PERMISO);
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
 
     }
@@ -471,7 +471,7 @@ public class Cequipos implements ActionListener {
             //asignacion del equipo
             Equipos o = sql.getEquipo(nuevo.getSerial());
 
-            SQLdepartamentos depa = new SQLdepartamentos();
+            SQLdepartamentos depa = SQLdepartamentos.getInstance();
             int d = ve.cbdepartamentos.getSelectedIndex();
             String a = ve.cbdepartamentos.getItemAt(d);
 
@@ -642,7 +642,7 @@ public class Cequipos implements ActionListener {
     }
 
     private void nuevoPeriferico() {
-        SQLperifericos peri = new SQLperifericos();
+        SQLperifericos peri = SQLperifericos.getInstance();
 
         String serial = ve.txtserialperi.getText();
         String serialPc = ve.txtserialpc.getText();
@@ -652,8 +652,7 @@ public class Cequipos implements ActionListener {
 
         if (!serial.equals("") && !serialPc.equals("")) {//valida que los campos no esten vaios
 
-            SQLequipos eq = new SQLequipos();
-            int pc = eq.getid(serialPc);
+            int pc = sql.getid(serialPc);
             int tipo = peri.getIdLista(periferico);
 
             if (peri.validarPeriferico(serial) == 0) {//valida no exista otro periferico con ese serial

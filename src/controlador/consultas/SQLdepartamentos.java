@@ -11,10 +11,24 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Departamentos;
 
 public class SQLdepartamentos extends Conexion_SQL {
+    
+    private static SQLdepartamentos instance;
 
     private final String COLUMNAS[] = {"Departamento", "Jefe", "Contacto"};
     private final String COLUMNAS2[] = {"Marca", "Serial", "Departamento"};
     private DefaultTableModel MODELO;
+
+    private SQLdepartamentos() {
+    }
+    
+    //singleton
+    public static SQLdepartamentos getInstance(){
+        if (instance == null){
+            instance = new SQLdepartamentos();
+        }
+        return instance;
+    }
+    
 
     //num es para decidir que columnas se va a usar
     private void seteoTabla(JTable tabla, int num) {

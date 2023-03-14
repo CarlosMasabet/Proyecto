@@ -37,6 +37,7 @@ public class MouseDepa implements MouseListener{
         
         ve.btndetalles.addMouseListener(this);
     }
+    
 
     @Override
     public void mouseClicked(MouseEvent me) {

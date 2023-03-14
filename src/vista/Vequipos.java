@@ -1,22 +1,22 @@
-
 package vista;
 
 import controlador.utilidades.Menu;
-import controlador.utilidades.Imagenes; 
+import controlador.utilidades.Imagenes;
+import controlador.ventanas.CInicial;
 import proyecto.Proyecto;
+
 /**
  *
  * @author Carlos Masabet
  */
 public class Vequipos extends javax.swing.JFrame {
 
-     Menu m = new Menu(Proyecto.img);
-     
+    Menu m = new Menu(Proyecto.img);
+
     public Vequipos() {
         initComponents();
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -652,18 +652,18 @@ public class Vequipos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
-        Imagenes flechaD=new Imagenes();
+        Imagenes flechaD = new Imagenes();
         flechaD.bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseEntered
 
     private void btnmenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseExited
-        Imagenes flechaD=new Imagenes();
+        Imagenes flechaD = new Imagenes();
         flechaD.no_bordes(btnmenu);
     }//GEN-LAST:event_btnmenuMouseExited
 
     private void btnsalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseClicked
-        Inicial atras=new Inicial();
-        atras.setVisible(true);
+        Inicial atras = Inicial.getInstance();
+        CInicial ci = new CInicial(atras);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalir2MouseClicked
 

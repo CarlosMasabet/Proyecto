@@ -2,6 +2,7 @@ package vista;
 
 import controlador.utilidades.Imagenes;
 import controlador.utilidades.Menu;
+import controlador.ventanas.CInicial;
 import proyecto.Proyecto;
 
 public class Vperifericos extends javax.swing.JFrame {
@@ -479,8 +480,8 @@ public class Vperifericos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuMouseExited
 
     private void btnsalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseClicked
-        Inicial atras = new Inicial();
-        atras.setVisible(true);
+        Inicial atras = Inicial.getInstance();
+        CInicial ci = new CInicial(atras);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalir2MouseClicked
 //grafica click

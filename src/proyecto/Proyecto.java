@@ -4,6 +4,7 @@ import controlador.consultas.SQLusuarios;
 import controlador.utilidades.Colores;
 import controlador.utilidades.Imagenes;
 import controlador.ventanas.login.Clogin;
+import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import modelo.Usuarios;
 import vista.Login;
@@ -21,13 +22,15 @@ public class Proyecto {
     
     public static final String LLENAR_DATOS = "Debe rellenar todos lo campos solicitados";
     public static final String CAMBIAR_DATOS = "No se han modificado los campos solicitados";
+    public static final String SIN_PERMISO = "Usted no tiene permiso para realizar esta acción";
+    public static final Dimension TAMAÑO = new Dimension(1005, 590);
     
     public static Colores color = new Colores();
     public static Imagenes img = new Imagenes();
                
     public static void main(String[] args) {
         
-        sql = new SQLusuarios();
+        sql = SQLusuarios.getInstance();
         us =  new Usuarios();
         ve = new Login();
         ve.setIconImage(ICONO.getImage());

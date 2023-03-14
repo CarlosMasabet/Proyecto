@@ -16,9 +16,24 @@ import modelo.Equipos;
  * @author Carlos Masabet
  */
 public class SQLequipos extends Conexion_SQL {
+    
+    private static SQLequipos instance;
 
     private final String COLUMNAS[] = {"Marca", "Modelo", "Serial"};
     private DefaultTableModel MODELO;
+
+    private SQLequipos() {
+    }
+    
+    
+    
+    //singleton
+    public static SQLequipos getInstance(){
+        if (instance == null){
+            instance = new SQLequipos();
+        }
+        return instance;
+    }
 
     private void seteoTabla(JTable tabla) {
         MODELO = new Tablas(COLUMNAS, 0);

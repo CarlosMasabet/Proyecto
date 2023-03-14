@@ -2,6 +2,7 @@ package vista;
 
 import controlador.utilidades.Imagenes;
 import controlador.utilidades.Menu;
+import controlador.ventanas.CInicial;
 import proyecto.Proyecto;
 
 public class Vreportes extends javax.swing.JFrame {
@@ -202,7 +203,7 @@ public class Vreportes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsolicitudesMouseExited
 //menu
     private void btnmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseClicked
-        m.menu_accion(btnmenu, btnequipos, btnpersonas, btnusuarios, btnsolicitudes);
+        //m.menu_accion(btnmenu, btnequipos, btnpersonas, btnusuarios, btnsolicitudes);
     }//GEN-LAST:event_btnmenuMouseClicked
 
     private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
@@ -216,8 +217,8 @@ public class Vreportes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmenuMouseExited
 
     private void btnsalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseClicked
-        Inicial atras = new Inicial();
-        atras.setVisible(true);
+        Inicial atras = Inicial.getInstance();
+        CInicial ci = new CInicial(atras);
         this.setVisible(false);
     }//GEN-LAST:event_btnsalir2MouseClicked
 
