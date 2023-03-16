@@ -48,9 +48,9 @@ public class Clogin implements ActionListener, KeyListener {
     }
 
     private void Iniciar() {
-        ve.setSize(907, 565);
+        ve.setSize(Proyecto.TAMAÑO);
         ve.setResizable(false);
-        //new Imagenes().cambio_tam(ve.logo, "imagenes/logopequeño.png");
+        ve.setTitle(Proyecto.TITULO);
         ve.setLocationRelativeTo(null);
         ve.setVisible(true);
     }

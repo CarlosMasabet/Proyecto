@@ -14,7 +14,7 @@ public class SQLperifericos extends Conexion_SQL {
     
     private static SQLperifericos instance;
 
-    private final String COLUMNAS1[] = {"Periferico", "serial"};
+    private final String COLUMNAS1[] = {"Periferico", "Serial"};
     private final String COLUMNAS2[] = {"Serial", "Periferico", "PC"};
     private DefaultTableModel MODELO;
 
@@ -41,12 +41,12 @@ public class SQLperifericos extends Conexion_SQL {
         
         tabla.setFocusable(false);
         tabla.getTableHeader().setReorderingAllowed(false);
-        tabla.getTableHeader().setBackground(Color.black);
+        tabla.getTableHeader().setBackground(Colores.AZUL);
         tabla.getTableHeader().setForeground(Color.WHITE);
         tabla.getTableHeader().setFont(new Font("time new roman", Font.BOLD, 18));
         tabla.getTableHeader().setOpaque(false);
-        tabla.setSelectionForeground(Color.WHITE);
-        tabla.setSelectionBackground(Colores.BONTON_CLARO);
+        tabla.setSelectionForeground(Color.BLACK);
+        tabla.setSelectionBackground(Colores.GRIS_OSCURO);
         tabla.setBackground(Color.WHITE);
         tabla.setRowHeight(20);
     }

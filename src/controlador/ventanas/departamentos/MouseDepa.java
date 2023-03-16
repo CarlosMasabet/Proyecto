@@ -19,6 +19,10 @@ public class MouseDepa implements MouseListener{
     public MouseDepa(Vdepartamentos ve, Colores col) {
         this.ve = ve;
         this.col = col;
+        
+        ve.cbtabla.addMouseListener(this);
+        ve.cbbuscar.addMouseListener(this);
+        ve.cbtipobusqueda.addMouseListener(this);
 
         ve.btnAbrirAsignar.addMouseListener(this);
         ve.btnAsignar.addMouseListener(this);
@@ -78,36 +82,48 @@ public class MouseDepa implements MouseListener{
     //pone los botones de color oscuro cuando se pasael mouse por encima
     @Override
     public void mouseEntered(MouseEvent me) {
+        //combobox
+        if (me.getSource().equals(ve.cbtabla)){
+            col.cbEntra(ve.cbtabla);
+        }
+        if (me.getSource().equals(ve.cbbuscar)){
+            col.cbEntra(ve.cbbuscar);
+        }
+        if (me.getSource().equals(ve.cbtipobusqueda)){
+            col.cbEntra(ve.cbtipobusqueda);
+        }
+        
+        //botones
         if (me.getSource().equals(ve.btnAbrirAsignar)){
-            col.oscuro(ve.btnAbrirAsignar);
+            col.btnEntra(ve.btnAbrirAsignar);
         }
         if (me.getSource().equals(ve.btnAsignar)){
-            col.oscuro(ve.btnAsignar);
+            col.btnEntra(ve.btnAsignar);
         }
         if (me.getSource().equals(ve.btnReasignar)){
-            col.oscuro(ve.btnReasignar);
+            col.btnEntra(ve.btnReasignar);
         }
         
         if (me.getSource().equals(ve.btnAbrirModificar)){
-            col.oscuro(ve.btnAbrirModificar);
+            col.btnEntra(ve.btnAbrirModificar);
         }
         if (me.getSource().equals(ve.btnactualizar)){
-            col.oscuro(ve.btnactualizar);
+            col.btnEntra(ve.btnactualizar);
         }
         
         if (me.getSource().equals(ve.btnAbrirSolicitud)){
-            col.oscuro(ve.btnAbrirSolicitud);
+            col.btnEntra(ve.btnAbrirSolicitud);
         }
         
         if (me.getSource().equals(ve.btnAbrirAgregar)){
-            col.oscuro(ve.btnAbrirAgregar);
+            col.btnEntra(ve.btnAbrirAgregar);
         }
         if (me.getSource().equals(ve.btnagregar)){
-            col.oscuro(ve.btnagregar);
+            col.btnEntra(ve.btnagregar);
         }
         
         if (me.getSource().equals(ve.btndetalles)){
-            col.oscuro(ve.btndetalles);
+            col.btnEntra(ve.btndetalles);
         }
         
     }
@@ -115,38 +131,50 @@ public class MouseDepa implements MouseListener{
     //pone lo botones de color claro cuando se pasa el mouse por encima
     @Override
     public void mouseExited(MouseEvent me) {
+        //combobox
+        if (me.getSource().equals(ve.cbtabla)){
+            col.cbSale(ve.cbtabla);
+        }
+        if (me.getSource().equals(ve.cbbuscar)){
+            col.cbSale(ve.cbbuscar);
+        }
+        if (me.getSource().equals(ve.cbtipobusqueda)){
+            col.cbSale(ve.cbtipobusqueda);
+        }
+        
+        //botones
         if (me.getSource().equals(ve.btnAbrirAsignar)){
-            col.claro(ve.btnAbrirAsignar);
+            col.btnSale(ve.btnAbrirAsignar);
         }
         if (me.getSource().equals(ve.btnAsignar)){
-            col.claro(ve.btnAsignar);
+            col.btnSale(ve.btnAsignar);
         }
         if (me.getSource().equals(ve.btnReasignar)){
-            col.claro(ve.btnReasignar);
+            col.btnSale(ve.btnReasignar);
         }
         
         
         if (me.getSource().equals(ve.btnAbrirModificar)){
-            col.claro(ve.btnAbrirModificar);
+            col.btnSale(ve.btnAbrirModificar);
         }
         if (me.getSource().equals(ve.btnactualizar)){
-            col.claro(ve.btnactualizar);
+            col.btnSale(ve.btnactualizar);
         }
         
         
         if (me.getSource().equals(ve.btnAbrirSolicitud)){
-            col.claro(ve.btnAbrirSolicitud);
+            col.btnSale(ve.btnAbrirSolicitud);
         }
         
         if (me.getSource().equals(ve.btnAbrirAgregar)){
-            col.claro(ve.btnAbrirAgregar);
+            col.btnSale(ve.btnAbrirAgregar);
         }
         if (me.getSource().equals(ve.btnagregar)){
-            col.claro(ve.btnagregar);
+            col.btnSale(ve.btnagregar);
         }
         
         if (me.getSource().equals(ve.btndetalles)){
-            col.claro(ve.btndetalles);
+            col.btnSale(ve.btndetalles);
         }
     }
     

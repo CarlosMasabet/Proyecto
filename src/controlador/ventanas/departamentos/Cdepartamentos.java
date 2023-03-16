@@ -7,6 +7,8 @@ import controlador.consultas.SQLperifericos;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Departamentos;
 import modelo.Equipos;
@@ -70,14 +72,15 @@ public class Cdepartamentos implements ActionListener {
         
         ve.btnAbrirSolicitud.setVisible(false);
 
-        ve.btnAbrirAgregar.setVisible(Clogin.Admin);
+        //ve.btnAbrirAgregar.setVisible(Clogin.Admin);
 
         int selec = ve.cbtabla.getSelectedIndex();
         llenadoTabla(selec);
 
-        ve.setSize(new Dimension(627, 520));
+        ve.setSize(Proyecto.TAMAÑO);
+        ve.us.setText(Clogin.NomUsuario);
         ve.setResizable(false);
-        ve.setTitle(Clogin.NomUsuario);
+        ve.setTitle(Proyecto.TITULO+ "-Departamentos");
         ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.setLocationRelativeTo(null);
         ve.setVisible(true);
@@ -126,12 +129,20 @@ public class Cdepartamentos implements ActionListener {
 
     //selec decide que tabla se muestra, 0 departementos, 1 asignaciones y 2 solicitudes
     private void llenadoTabla(int selec) {
+        
+        ImageIcon dep = new ImageIcon("imagenes/fondos/DEPAS.png");
+        ImageIcon asig = new ImageIcon("imagenes/fondos/DEPAS2.png");
+        
+        Icon fondo;
 
         switch (selec) {
             case DEPAS://tabla de departementos
                 sql.tablaDepas(ve.jtdepartamentos);
                 tabla = "departemento";
-
+                
+                fondo = new ImageIcon(dep.getImage());
+                ve.fondoIMG.setIcon(fondo);
+                
                 ve.btnAbrirModificar.setVisible(true);
                 ve.btndetalles.setVisible(false);
                 ve.cbtipobusqueda.setVisible(false);
@@ -145,6 +156,9 @@ public class Cdepartamentos implements ActionListener {
             case ASIGNACIONES://tabla de asignaciones
                 sql.tablaVinculos(ve.jtdepartamentos);
                 tabla = "asignacione";
+                
+                fondo = new ImageIcon(asig.getImage());
+                ve.fondoIMG.setIcon(fondo);
 
                 ve.btnAbrirModificar.setVisible(false);
                 ve.btndetalles.setVisible(true);
@@ -166,16 +180,22 @@ public class Cdepartamentos implements ActionListener {
 
     //abrir ventanas
     private void abrirAgregarDepa() {
-        vaciarCampos();
+        if (Clogin.Admin){
+            vaciarCampos();
 
-        ve.btnagregar.setVisible(true);
-        ve.btnactualizar.setVisible(false);
+            ve.btnagregar.setVisible(true);
+            ve.btnactualizar.setVisible(false);
 
-        ve.jfagregar.setSize(new Dimension(360, 290));
-        ve.jfagregar.setResizable(false);
-        ve.jfagregar.setIconImage(proyecto.Proyecto.ICONO.getImage());
-        ve.jfagregar.setLocationRelativeTo(ve);
-        ve.jfagregar.setVisible(true);
+            ve.jfagregar.setSize(new Dimension(360, 290));
+            ve.jfagregar.setResizable(false);
+            ve.jfagregar.setIconImage(proyecto.Proyecto.ICONO.getImage());
+            ve.jfagregar.setLocationRelativeTo(ve);
+            ve.jfagregar.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
+        }
+        
+        
     }
 
     private void abrirAsignar() {

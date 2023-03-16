@@ -33,12 +33,12 @@ public class MouseLogin implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent me) {
-        col.oscuro(ve.btnentrar);
+        col.btnEntra(ve.btnentrar);
     }
 
     @Override
     public void mouseExited(MouseEvent me) {
-        col.claro(ve.btnentrar);
+        col.btnSale(ve.btnentrar);
     }
     
 }

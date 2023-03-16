@@ -143,7 +143,7 @@ CREATE TABLE `pc` (
 
 LOCK TABLES `pc` WRITE;
 /*!40000 ALTER TABLE `pc` DISABLE KEYS */;
-INSERT INTO `pc` VALUES (21,'ohsd',3,15,'6fdt23','Activo'),(23,'uwu',3,16,'741852963','Dañado'),(24,'no se',2,11,'awd23wr3','Activo'),(25,'F',2,11,'1472f5839','Dañado'),(26,'GG',2,11,'vd754-87','Activo'),(27,'carlos',4,17,'dre984235','Activo'),(28,'lol',4,17,'lp578','Dañado'),(29,'yolo',4,17,'d8461a','Activo'),(31,'jose',5,22,'68654er','Activo'),(32,'VIC',6,23,'r498ffdd','Dañado'),(33,'VIC',6,25,'oig','Dañado'),(34,'kojf',4,17,'6498j','Dañado'),(35,'fydtr',6,23,'dr78678','Dañado'),(36,'gg',6,24,'852','Dañado'),(37,'el pepe',5,22,'59fdf','Activo');
+INSERT INTO `pc` VALUES (21,'ohsd',3,15,'6fdt23','Activo'),(23,'uwu',3,14,'741852963','Dañado'),(24,'no se',2,11,'awd23wr3','Activo'),(25,'F',2,12,'1472f5839','Dañado'),(26,'GG',2,13,'vd754-87','Activo'),(27,'carlos',4,17,'dre984235','Activo'),(28,'lol',4,20,'lp578','Dañado'),(29,'yolo',4,17,'d8461a','Activo'),(31,'jose',5,26,'68654er','Activo'),(32,'VIC',6,23,'r498ffdd','Dañado'),(33,'VIC',6,25,'oig','Dañado'),(34,'kojf',4,19,'6498j','Dañado'),(35,'fydtr',6,23,'dr78678','Dañado'),(36,'gg',6,24,'852','Dañado'),(37,'el pepe',5,22,'59fdf','Activo');
 /*!40000 ALTER TABLE `pc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +282,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'001','Administrador','80f5414f8bda805dd0484569dc7be9573807c65f','2023-03-14 17:57:41',1),(2,'v28104377','Carlos Masabet','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-03-14 14:33:43',2),(3,'123','no tiene','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-01-25 14:23:55',3);
+INSERT INTO `usuarios` VALUES (1,'001','Administrador','80f5414f8bda805dd0484569dc7be9573807c65f','2023-03-16 01:09:40',1),(2,'v28104377','Carlos Masabet','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-03-15 23:11:24',2),(3,'123','no tiene','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-01-25 14:23:55',3);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -295,4 +295,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-14 17:57:45
+-- Dump completed on 2023-03-16  1:09:50

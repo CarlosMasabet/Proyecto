@@ -1,7 +1,7 @@
 package vista;
 
+import controlador.utilidades.Colores;
 import controlador.utilidades.Menu;
-import controlador.utilidades.Imagenes;
 import controlador.ventanas.CInicial;
 import proyecto.Proyecto;
 
@@ -78,6 +78,7 @@ public class Vequipos extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtserialpc = new javax.swing.JLabel();
         fondo = new javax.swing.JPanel();
+        us = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtequipos = new javax.swing.JTable();
         txtbusqueda = new javax.swing.JTextField();
@@ -86,36 +87,30 @@ public class Vequipos extends javax.swing.JFrame {
         btndetalles = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
         cbbusqueda = new javax.swing.JComboBox<>();
-        lineaBuscar = new javax.swing.JSeparator();
         btnmarca = new javax.swing.JButton();
         btnmodelo = new javax.swing.JButton();
         cbbusModelos = new javax.swing.JComboBox<>();
-        fondobotones = new javax.swing.JPanel();
-        txtequipo = new javax.swing.JLabel();
-        btnequipos = new javax.swing.JLabel();
-        txtpersonas = new javax.swing.JLabel();
-        btnpersonas = new javax.swing.JLabel();
-        txtsolicitudes = new javax.swing.JLabel();
-        btnsolicitudes = new javax.swing.JLabel();
-        txtAtras = new javax.swing.JLabel();
-        btnmenu = new javax.swing.JLabel();
+        btnperi = new javax.swing.JLabel();
+        btnus = new javax.swing.JLabel();
+        btndepas = new javax.swing.JLabel();
+        lineaBuscar = new javax.swing.JSeparator();
         btnsalir2 = new javax.swing.JLabel();
+        imgFondo = new javax.swing.JLabel();
 
         jfañadir.setMinimumSize(new java.awt.Dimension(378, 371));
 
-        jPanel1.setBackground(new java.awt.Color(225, 232, 236));
+        jPanel1.setBackground(Colores.GRIS_CLARO);
         jPanel1.setMinimumSize(new java.awt.Dimension(380, 400));
         jPanel1.setPreferredSize(new java.awt.Dimension(380, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtserial.setBackground(new java.awt.Color(225, 232, 236));
+        txtserial.setBackground(Colores.GRIS_CLARO);
         txtserial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtserial.setBorder(null);
         jPanel1.add(txtserial, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, 20));
 
-        cbestado.setBackground(new java.awt.Color(0, 134, 190));
+        cbestado.setBackground(Colores.GRIS_CLARO);
         cbestado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbestado.setForeground(new java.awt.Color(255, 255, 255));
         cbestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Activo", "Dañado" }));
         cbestado.setBorder(null);
         cbestado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -131,14 +126,14 @@ public class Vequipos extends javax.swing.JFrame {
         jLabel3.setText("Estado:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 170, -1));
 
-        btnañadir2.setBackground(new java.awt.Color(0, 134, 190));
+        btnañadir2.setBackground(Colores.AZUL);
         btnañadir2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnañadir2.setForeground(new java.awt.Color(255, 255, 255));
         btnañadir2.setText("Añadir");
         btnañadir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(btnañadir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 140, -1));
 
-        btnguardar.setBackground(new java.awt.Color(0, 134, 190));
+        btnguardar.setBackground(Colores.AZUL);
         btnguardar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnguardar.setForeground(new java.awt.Color(255, 255, 255));
         btnguardar.setText("Guardar");
@@ -155,7 +150,7 @@ public class Vequipos extends javax.swing.JFrame {
         jLabel7.setText("Modelo");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 160, -1));
 
-        txtusuario.setBackground(new java.awt.Color(225, 232, 236));
+        txtusuario.setBackground(Colores.GRIS_CLARO);
         txtusuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtusuario.setToolTipText("");
         txtusuario.setBorder(null);
@@ -172,15 +167,13 @@ public class Vequipos extends javax.swing.JFrame {
         jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 170, 10));
 
-        cbmarca.setBackground(new java.awt.Color(0, 134, 190));
+        cbmarca.setBackground(Colores.GRIS_CLARO);
         cbmarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbmarca.setForeground(new java.awt.Color(255, 255, 255));
         cbmarca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 170, -1));
 
-        cbmodelo.setBackground(new java.awt.Color(0, 134, 190));
+        cbmodelo.setBackground(Colores.GRIS_CLARO);
         cbmodelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbmodelo.setForeground(new java.awt.Color(255, 255, 255));
         cbmodelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbmodelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,15 +192,14 @@ public class Vequipos extends javax.swing.JFrame {
         jLabel9.setText("Departamento: ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 180, 160, -1));
 
-        cbdepartamentos.setBackground(new java.awt.Color(0, 134, 190));
+        cbdepartamentos.setBackground(Colores.GRIS_CLARO);
         cbdepartamentos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbdepartamentos.setForeground(new java.awt.Color(255, 255, 255));
         cbdepartamentos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(cbdepartamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 170, -1));
 
         jfañadir.getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        jPanel2.setBackground(new java.awt.Color(225, 232, 236));
+        jPanel2.setBackground(Colores.GRIS_CLARO);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -240,7 +232,7 @@ public class Vequipos extends javax.swing.JFrame {
         txtdetususario.setText("usuario");
         jPanel2.add(txtdetususario, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, -1));
 
-        btnmodificar.setBackground(new java.awt.Color(0, 134, 190));
+        btnmodificar.setBackground(Colores.ROJO);
         btnmodificar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnmodificar.setForeground(new java.awt.Color(255, 255, 255));
         btnmodificar.setText("Modificar");
@@ -269,7 +261,7 @@ public class Vequipos extends javax.swing.JFrame {
         txtdetdepar.setText("departamento");
         jPanel2.add(txtdetdepar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 350, -1));
 
-        btnperiferico.setBackground(new java.awt.Color(0, 134, 190));
+        btnperiferico.setBackground(Colores.ROJO);
         btnperiferico.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnperiferico.setForeground(new java.awt.Color(255, 255, 255));
         btnperiferico.setText("Agregar periferico");
@@ -278,18 +270,18 @@ public class Vequipos extends javax.swing.JFrame {
 
         jfdetalles.getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
-        jPanel3.setBackground(new java.awt.Color(225, 232, 236));
+        jPanel3.setBackground(Colores.GRIS_CLARO);
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 130, 20));
 
-        txtnewMarca.setBackground(new java.awt.Color(225, 232, 236));
+        txtnewMarca.setBackground(Colores.GRIS_CLARO);
         txtnewMarca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtnewMarca.setBorder(null);
         jPanel3.add(txtnewMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 130, -1));
 
-        btnnewMarca.setBackground(new java.awt.Color(0, 134, 190));
+        btnnewMarca.setBackground(Colores.ROJO);
         btnnewMarca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnnewMarca.setForeground(new java.awt.Color(255, 255, 255));
         btnnewMarca.setText("Agregar");
@@ -303,18 +295,18 @@ public class Vequipos extends javax.swing.JFrame {
 
         jfmarca.getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
-        jPanel4.setBackground(new java.awt.Color(225, 232, 236));
+        jPanel4.setBackground(Colores.GRIS_CLARO);
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
         jPanel4.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, 20));
 
-        txtnewModelo.setBackground(new java.awt.Color(225, 232, 236));
+        txtnewModelo.setBackground(Colores.GRIS_CLARO);
         txtnewModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtnewModelo.setBorder(null);
         jPanel4.add(txtnewModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 110, -1));
 
-        btnnewModelo.setBackground(new java.awt.Color(0, 134, 190));
+        btnnewModelo.setBackground(Colores.ROJO);
         btnnewModelo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnnewModelo.setForeground(new java.awt.Color(255, 255, 255));
         btnnewModelo.setText("Agregar");
@@ -326,9 +318,8 @@ public class Vequipos extends javax.swing.JFrame {
         jLabel8.setText("Agregar Modelo");
         jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 30, 240, -1));
 
-        cbnewModelo.setBackground(new java.awt.Color(0, 134, 190));
+        cbnewModelo.setBackground(Colores.GRIS_CLARO);
         cbnewModelo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbnewModelo.setForeground(new java.awt.Color(255, 255, 255));
         cbnewModelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbnewModelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,17 +330,16 @@ public class Vequipos extends javax.swing.JFrame {
 
         jfmodelo.getContentPane().add(jPanel4, java.awt.BorderLayout.LINE_START);
 
-        jPanel5.setBackground(new java.awt.Color(225, 232, 236));
+        jPanel5.setBackground(Colores.GRIS_CLARO);
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtserialperi.setBackground(new java.awt.Color(225, 232, 236));
+        txtserialperi.setBackground(Colores.GRIS_CLARO);
         txtserialperi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtserialperi.setBorder(null);
         jPanel5.add(txtserialperi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 140, -1));
 
-        cbtipoperi.setBackground(new java.awt.Color(0, 134, 190));
+        cbtipoperi.setBackground(Colores.GRIS_CLARO);
         cbtipoperi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cbtipoperi.setForeground(new java.awt.Color(255, 255, 255));
         cbtipoperi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbtipoperi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -373,7 +363,7 @@ public class Vequipos extends javax.swing.JFrame {
         jLabel12.setText("Serial del periferico:");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 180, -1));
 
-        btnnewperi.setBackground(new java.awt.Color(0, 134, 190));
+        btnnewperi.setBackground(Colores.AZUL);
         btnnewperi.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnnewperi.setForeground(new java.awt.Color(255, 255, 255));
         btnnewperi.setText("Guardar");
@@ -399,12 +389,15 @@ public class Vequipos extends javax.swing.JFrame {
         jfperiferico.getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fondo.setBackground(new java.awt.Color(225, 232, 236));
         fondo.setToolTipText("");
         fondo.setMinimumSize(new java.awt.Dimension(800, 500));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        us.setForeground(new java.awt.Color(255, 255, 255));
+        us.setText("jLabel14");
+        fondo.add(us, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 20, 120, 20));
 
         jScrollPane1.setBackground(new java.awt.Color(225, 232, 236));
 
@@ -431,19 +424,20 @@ public class Vequipos extends javax.swing.JFrame {
         jtequipos.setShowHorizontalLines(false);
         jScrollPane1.setViewportView(jtequipos);
 
-        fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 700, 390));
+        fondo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 770, 370));
 
-        txtbusqueda.setBackground(new java.awt.Color(225, 232, 236));
+        txtbusqueda.setBackground(Colores.AZUL);
         txtbusqueda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtbusqueda.setForeground(new java.awt.Color(255, 255, 255));
         txtbusqueda.setBorder(null);
         txtbusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtbusquedaActionPerformed(evt);
             }
         });
-        fondo.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 150, 30));
+        fondo.add(txtbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 150, 30));
 
-        cbtipobusqueda.setBackground(new java.awt.Color(0, 134, 190));
+        cbtipobusqueda.setBackground(Colores.AZUL);
         cbtipobusqueda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbtipobusqueda.setForeground(new java.awt.Color(255, 255, 255));
         cbtipobusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar", "Marca", "Serial" }));
@@ -453,23 +447,23 @@ public class Vequipos extends javax.swing.JFrame {
                 cbtipobusquedaActionPerformed(evt);
             }
         });
-        fondo.add(cbtipobusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, -1));
+        fondo.add(cbtipobusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 140, -1));
 
-        btnañadir.setBackground(new java.awt.Color(0, 134, 190));
+        btnañadir.setBackground(Colores.ROJO);
         btnañadir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnañadir.setForeground(new java.awt.Color(255, 255, 255));
         btnañadir.setText("Añadir");
         btnañadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.add(btnañadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
+        fondo.add(btnañadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 123, 175, 30));
 
-        btndetalles.setBackground(new java.awt.Color(0, 134, 190));
+        btndetalles.setBackground(Colores.ROJO);
         btndetalles.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btndetalles.setForeground(new java.awt.Color(255, 255, 255));
         btndetalles.setText("Detalles");
         btndetalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.add(btndetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+        fondo.add(btndetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 123, 175, 30));
 
-        btneliminar.setBackground(new java.awt.Color(0, 134, 190));
+        btneliminar.setBackground(Colores.ROJO);
         btneliminar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btneliminar.setForeground(new java.awt.Color(255, 255, 255));
         btneliminar.setText("Eliminar");
@@ -479,130 +473,110 @@ public class Vequipos extends javax.swing.JFrame {
                 btneliminarActionPerformed(evt);
             }
         });
-        fondo.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
+        fondo.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 123, 175, 30));
 
-        cbbusqueda.setBackground(new java.awt.Color(0, 134, 190));
+        cbbusqueda.setBackground(Colores.AZUL);
         cbbusqueda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbbusqueda.setForeground(new java.awt.Color(255, 255, 255));
         cbbusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbbusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.add(cbbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 160, -1));
+        fondo.add(cbbusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 160, -1));
 
-        lineaBuscar.setBackground(new java.awt.Color(0, 0, 0));
-        fondo.add(lineaBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 160, 20));
-
-        btnmarca.setBackground(new java.awt.Color(0, 134, 190));
+        btnmarca.setBackground(Colores.AZUL);
         btnmarca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnmarca.setForeground(new java.awt.Color(255, 255, 255));
         btnmarca.setText("Marca");
         btnmarca.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.add(btnmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        fondo.add(btnmarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(778, 123, 95, 30));
 
-        btnmodelo.setBackground(new java.awt.Color(0, 134, 190));
+        btnmodelo.setBackground(Colores.AZUL);
         btnmodelo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnmodelo.setForeground(new java.awt.Color(255, 255, 255));
         btnmodelo.setText("Modelo");
         btnmodelo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.add(btnmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+        btnmodelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodeloActionPerformed(evt);
+            }
+        });
+        fondo.add(btnmodelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(869, 123, 95, 30));
 
-        cbbusModelos.setBackground(new java.awt.Color(0, 134, 190));
+        cbbusModelos.setBackground(Colores.AZUL);
         cbbusModelos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbbusModelos.setForeground(new java.awt.Color(255, 255, 255));
-        fondo.add(cbbusModelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 160, -1));
+        fondo.add(cbbusModelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 70, 160, -1));
 
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 770, 500));
-
-        fondobotones.setBackground(new java.awt.Color(225, 232, 236));
-        fondobotones.setBorder(new javax.swing.border.MatteBorder(null));
-        fondobotones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtequipo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        fondobotones.add(txtequipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 70, -1));
-
-        btnequipos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnequipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/perifericos40.png"))); // NOI18N
-        btnequipos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnequipos.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnperi.setBackground(Colores.AZUL);
+        btnperi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnperi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnperi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnequiposMouseClicked(evt);
+                btnperiMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnequiposMouseEntered(evt);
+                btnperiMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnequiposMouseExited(evt);
+                btnperiMouseExited(evt);
             }
         });
-        fondobotones.add(btnequipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 50, 50));
+        fondo.add(btnperi, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 200, 175, 50));
 
-        txtpersonas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        fondobotones.add(txtpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 60, -1));
-
-        btnpersonas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnpersonas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/usuario1.png"))); // NOI18N
-        btnpersonas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnpersonas.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnus.setBackground(Colores.AZUL);
+        btnus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btnus.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnpersonasMouseClicked(evt);
+                btnusMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnpersonasMouseEntered(evt);
+                btnusMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnpersonasMouseExited(evt);
+                btnusMouseExited(evt);
             }
         });
-        fondobotones.add(btnpersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 50, 50));
+        fondo.add(btnus, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 340, 175, 50));
 
-        txtsolicitudes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fondobotones.add(txtsolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 80, -1));
-
-        btnsolicitudes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnsolicitudes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/dpto40.png"))); // NOI18N
-        btnsolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnsolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+        btndepas.setBackground(Colores.AZUL);
+        btndepas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        btndepas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btndepas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnsolicitudesMouseClicked(evt);
+                btndepasMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnsolicitudesMouseEntered(evt);
+                btndepasMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnsolicitudesMouseExited(evt);
+                btndepasMouseExited(evt);
             }
         });
-        fondobotones.add(btnsolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 50, 50));
+        fondo.add(btndepas, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 270, 175, 50));
 
-        txtAtras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fondobotones.add(txtAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 90, -1));
+        lineaBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        fondo.add(lineaBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 160, 20));
 
-        btnmenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/izquierda.png"))); // NOI18N
-        btnmenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnmenu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnmenuMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnmenuMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnmenuMouseExited(evt);
-            }
-        });
-        fondobotones.add(btnmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 70));
-
+        btnsalir2.setBackground(Colores.AZUL);
         btnsalir2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnsalir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flecha-izquierda.png"))); // NOI18N
         btnsalir2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnsalir2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnsalir2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnsalir2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnsalir2MouseExited(evt);
+            }
         });
-        fondobotones.add(btnsalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 90, 80));
+        fondo.add(btnsalir2, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 65, 175, 50));
 
-        getContentPane().add(fondobotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 500));
+        imgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/EQUIPOS.png"))); // NOI18N
+        fondo.add(imgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 565));
+
+        getContentPane().add(fondo, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -611,55 +585,41 @@ public class Vequipos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btneliminarActionPerformed
 
-    private void btnequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequiposMouseClicked
+    private void btnperiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperiMouseClicked
         m.perifericos_click(this);
-    }//GEN-LAST:event_btnequiposMouseClicked
+    }//GEN-LAST:event_btnperiMouseClicked
 
-    private void btnequiposMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequiposMouseEntered
-        m.perifericos_entra(btnequipos, txtequipo);
-    }//GEN-LAST:event_btnequiposMouseEntered
+    private void btnperiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperiMouseEntered
+        Proyecto.img.bordes(btnperi);
+    }//GEN-LAST:event_btnperiMouseEntered
 
-    private void btnequiposMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequiposMouseExited
-        m.perifericos_sale(btnequipos, txtequipo);
-    }//GEN-LAST:event_btnequiposMouseExited
+    private void btnperiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperiMouseExited
+        Proyecto.img.no_bordes(btnperi);
+    }//GEN-LAST:event_btnperiMouseExited
 
-    private void btnpersonasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpersonasMouseClicked
+    private void btnusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusMouseClicked
         m.usuarios_click(this);
-    }//GEN-LAST:event_btnpersonasMouseClicked
+    }//GEN-LAST:event_btnusMouseClicked
 
-    private void btnpersonasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpersonasMouseEntered
-        m.usuarios_entra(btnpersonas, txtpersonas);
-    }//GEN-LAST:event_btnpersonasMouseEntered
+    private void btnusMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusMouseEntered
+        Proyecto.img.bordes(btnus);
+    }//GEN-LAST:event_btnusMouseEntered
 
-    private void btnpersonasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnpersonasMouseExited
-        m.usuarios_sale(btnpersonas, txtpersonas);
-    }//GEN-LAST:event_btnpersonasMouseExited
+    private void btnusMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusMouseExited
+        Proyecto.img.no_bordes(btnus);
+    }//GEN-LAST:event_btnusMouseExited
 
-    private void btnsolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsolicitudesMouseClicked
+    private void btndepasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepasMouseClicked
         m.departamento_click(this);
-    }//GEN-LAST:event_btnsolicitudesMouseClicked
+    }//GEN-LAST:event_btndepasMouseClicked
 
-    private void btnsolicitudesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsolicitudesMouseEntered
-        m.departamento_entra(btnsolicitudes, txtsolicitudes);
-    }//GEN-LAST:event_btnsolicitudesMouseEntered
+    private void btndepasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepasMouseEntered
+        Proyecto.img.bordes(btndepas);
+    }//GEN-LAST:event_btndepasMouseEntered
 
-    private void btnsolicitudesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsolicitudesMouseExited
-        m.departamento_sale(btnsolicitudes, txtsolicitudes);
-    }//GEN-LAST:event_btnsolicitudesMouseExited
-
-    private void btnmenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseClicked
-        //m.menu_accion(btnmenu, btnequipos, btnpersonas, btnusuarios, btnsolicitudes);
-    }//GEN-LAST:event_btnmenuMouseClicked
-
-    private void btnmenuMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseEntered
-        Imagenes flechaD = new Imagenes();
-        flechaD.bordes(btnmenu);
-    }//GEN-LAST:event_btnmenuMouseEntered
-
-    private void btnmenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmenuMouseExited
-        Imagenes flechaD = new Imagenes();
-        flechaD.no_bordes(btnmenu);
-    }//GEN-LAST:event_btnmenuMouseExited
+    private void btndepasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepasMouseExited
+        Proyecto.img.no_bordes(btndepas);
+    }//GEN-LAST:event_btndepasMouseExited
 
     private void btnsalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseClicked
         Inicial atras = Inicial.getInstance();
@@ -690,6 +650,18 @@ public class Vequipos extends javax.swing.JFrame {
     private void cbtipoperiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtipoperiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbtipoperiActionPerformed
+
+    private void btnsalir2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseEntered
+        Proyecto.img.bordes(btnsalir2);
+    }//GEN-LAST:event_btnsalir2MouseEntered
+
+    private void btnsalir2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseExited
+        Proyecto.img.no_bordes(btnsalir2);
+    }//GEN-LAST:event_btnsalir2MouseExited
+
+    private void btnmodeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodeloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnmodeloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -729,21 +701,20 @@ public class Vequipos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnañadir;
     public javax.swing.JButton btnañadir2;
+    private javax.swing.JLabel btndepas;
     public javax.swing.JButton btndetalles;
     public javax.swing.JButton btneliminar;
-    private javax.swing.JLabel btnequipos;
     public javax.swing.JButton btnguardar;
     public javax.swing.JButton btnmarca;
-    private javax.swing.JLabel btnmenu;
     public javax.swing.JButton btnmodelo;
     public javax.swing.JButton btnmodificar;
     public javax.swing.JButton btnnewMarca;
     public javax.swing.JButton btnnewModelo;
     public javax.swing.JButton btnnewperi;
+    private javax.swing.JLabel btnperi;
     public javax.swing.JButton btnperiferico;
-    private javax.swing.JLabel btnpersonas;
     private javax.swing.JLabel btnsalir2;
-    private javax.swing.JLabel btnsolicitudes;
+    private javax.swing.JLabel btnus;
     public javax.swing.JComboBox<String> cbbusModelos;
     public javax.swing.JComboBox<String> cbbusqueda;
     public javax.swing.JComboBox<String> cbdepartamentos;
@@ -754,7 +725,7 @@ public class Vequipos extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cbtipobusqueda;
     public javax.swing.JComboBox<String> cbtipoperi;
     private javax.swing.JPanel fondo;
-    private javax.swing.JPanel fondobotones;
+    private javax.swing.JLabel imgFondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -789,7 +760,6 @@ public class Vequipos extends javax.swing.JFrame {
     public javax.swing.JTable jtequipos;
     public javax.swing.JTable jtperifericos;
     public javax.swing.JSeparator lineaBuscar;
-    private javax.swing.JLabel txtAtras;
     public javax.swing.JTextField txtbusqueda;
     public javax.swing.JLabel txtdetdepar;
     public javax.swing.JLabel txtdetestado;
@@ -797,14 +767,12 @@ public class Vequipos extends javax.swing.JFrame {
     public javax.swing.JLabel txtdetmodelo;
     public javax.swing.JLabel txtdetserial;
     public javax.swing.JLabel txtdetususario;
-    private javax.swing.JLabel txtequipo;
     public javax.swing.JTextField txtnewMarca;
     public javax.swing.JTextField txtnewModelo;
-    private javax.swing.JLabel txtpersonas;
     public javax.swing.JTextField txtserial;
     public javax.swing.JLabel txtserialpc;
     public javax.swing.JTextField txtserialperi;
-    private javax.swing.JLabel txtsolicitudes;
     public javax.swing.JTextField txtusuario;
+    public javax.swing.JLabel us;
     // End of variables declaration//GEN-END:variables
 }

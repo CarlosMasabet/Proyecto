@@ -49,11 +49,11 @@ public class Imagenes {
 
     //le pone bordes a un label
     public void bordes(JLabel j) {
-        j.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
+        j.setBorder(javax.swing.BorderFactory.createLineBorder(Color.WHITE));
     }
 
     //le quita los margenes a un label
     public void no_bordes(JLabel j) {
-        j.setBorder(javax.swing.BorderFactory.createLineBorder(Colores.GRIS_CLARO));
+        j.setBorder(javax.swing.BorderFactory.createLineBorder(Colores.AZUL));
     }
 }

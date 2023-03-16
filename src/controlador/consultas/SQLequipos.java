@@ -41,12 +41,12 @@ public class SQLequipos extends Conexion_SQL {
         tabla.setModel(MODELO);
         tabla.setFocusable(false);
         tabla.getTableHeader().setReorderingAllowed(false);
-        tabla.getTableHeader().setBackground(Color.black);
+        tabla.getTableHeader().setBackground(Colores.AZUL);
         tabla.getTableHeader().setForeground(Color.WHITE);
         tabla.getTableHeader().setFont(new Font("time new roman", Font.BOLD, 18));
         tabla.getTableHeader().setOpaque(false);
-        tabla.setSelectionForeground(Color.WHITE);
-        tabla.setSelectionBackground(Colores.BONTON_CLARO);
+        tabla.setSelectionForeground(Color.BLACK);
+        tabla.setSelectionBackground(Colores.GRIS_OSCURO);
         tabla.setBackground(Color.WHITE);
         tabla.setRowHeight(20);
     }
@@ -57,7 +57,7 @@ public class SQLequipos extends Conexion_SQL {
         ResultSet rs;
         Connection con = getConnection();//c.usuario ,pc.estado
 
-        String sql = "SELECT ma.Nombre, mo.Nombre, pc.serial FROM pc inner join marca as ma on pc.marca = ma.id inner join modelo as mo on pc.Modelo = mo.id;";
+        String sql = "SELECT ma.Nombre, mo.Nombre, pc.serial FROM pc inner join marca as ma on pc.marca = ma.id inner join modelo as mo on pc.Modelo = mo.id";
         try {
             seteoTabla(tabla);
 

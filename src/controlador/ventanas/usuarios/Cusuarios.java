@@ -56,14 +56,15 @@ public class Cusuarios implements ActionListener {
     }
 
     private void Iniciar() {
-        ve.setMinimumSize(new Dimension(710, 500));
-        ve.setTitle(Clogin.NomUsuario);
+        ve.setMinimumSize(Proyecto.TAMAÑO);
+        ve.us.setText(Clogin.NomUsuario);
+        ve.setTitle(Proyecto.TITULO+ "-Usuarios");
         ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.setLocationRelativeTo(null);
         ve.setResizable(false);
         ve.setVisible(true);
         
-        ve.btnabrirModDat.setVisible(Clogin.Admin);
+        //ve.btnabrirModDat.setVisible(Clogin.Admin);
 
         LlenadoTabla();
     }
@@ -288,44 +289,51 @@ public class Cusuarios implements ActionListener {
     //Cambiar datos
     private void AbrirModDat() {
         //permite modificar los datos de los usuarios a los admin
-        if (seleccionado) {
+        
+        if (Clogin.Admin){
+            
+            if (seleccionado) {
 
-            seleccionado = false;
+                seleccionado = false;
 
-            if (!TIPO_US.equals("Administrador")) {
+                if (!TIPO_US.equals("Administrador")) {
 
-                ve.jfañadir_us.setResizable(false);
-                ve.jfañadir_us.setTitle("Modificar Datos");
-                ve.titulo.setText("Modificar Datos");
-                ve.jfañadir_us.setSize(new Dimension(460, 310));
-                ve.jfañadir_us.setLocationRelativeTo(ve);
-                ve.btnmodDatos.setVisible(true);
-                //seteo de botonones
-                ve.btnagregar_us.setVisible(false);
-                ve.jfañadir_us.setVisible(true);
+                    ve.jfañadir_us.setResizable(false);
+                    ve.jfañadir_us.setTitle("Modificar Datos");
+                    ve.titulo.setText("Modificar Datos");
+                    ve.jfañadir_us.setSize(new Dimension(460, 310));
+                    ve.jfañadir_us.setLocationRelativeTo(ve);
+                    ve.btnmodDatos.setVisible(true);
+                    //seteo de botonones
+                    ve.btnagregar_us.setVisible(false);
+                    ve.jfañadir_us.setVisible(true);
 
-                //eliminado de  componentes que no se usan
-                ve.txt1.setVisible(false);
-                ve.txt2.setVisible(false);
-                ve.Separator1.setVisible(false);
-                ve.Separator2.setVisible(false);
+                    //eliminado de  componentes que no se usan
+                    ve.txt1.setVisible(false);
+                    ve.txt2.setVisible(false);
+                    ve.Separator1.setVisible(false);
+                    ve.Separator2.setVisible(false);
 
-                //llenado de los campos
-                ve.txtcod.setText(CODIGO);
-                ve.txtnom_us.setText(NOMBRE);
-                if (TIPO_US.equals("Regular")) {
-                    ve.cbtipoUs.setSelectedIndex(1);
+                    //llenado de los campos
+                    ve.txtcod.setText(CODIGO);
+                    ve.txtnom_us.setText(NOMBRE);
+                    if (TIPO_US.equals("Regular")) {
+                        ve.cbtipoUs.setSelectedIndex(1);
+                    } else {
+                        ve.cbtipoUs.setSelectedIndex(2);
+                    }
+
                 } else {
-                    ve.cbtipoUs.setSelectedIndex(2);
+                    JOptionPane.showMessageDialog(ve, "No se pueden cambiar los datos del administrador");
                 }
 
             } else {
-                JOptionPane.showMessageDialog(ve, "No se pueden cambiar los datos del administrador");
+                JOptionPane.showMessageDialog(ve, "Debe selecionar un usuario");
             }
-
         } else {
-            JOptionPane.showMessageDialog(ve, "Debe selecionar un usuario");
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
+        
 
     }
 

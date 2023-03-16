@@ -25,7 +25,7 @@ public class Cequipos implements ActionListener {
     private Equipos eq;
 
     private String MARCA, MODELO, SERIAL, ESTADO, USUARIO;
-    Boolean selecionado = false;
+    private Boolean selecionado = false;
 
     private static TecladoEquipos teclado;
 
@@ -83,25 +83,28 @@ public class Cequipos implements ActionListener {
     }
 
     protected void iniciar() {
-        ve.setTitle(Clogin.NomUsuario);
+        ve.setTitle(Proyecto.TITULO+ "-Equipos");
+        ve.us.setText(Clogin.NomUsuario);
         ve.setFocusable(true);
-        ve.setSize(new Dimension(800, 500));
+        ve.setSize(new Dimension(Proyecto.TAMAÑO));
         ve.setLocationRelativeTo(null);
         ve.setResizable(false);
         ve.setVisible(true);
 
         //seteo de botones
-        if (!Clogin.Admin) {
+        /*if (!Clogin.Admin) {
             ve.btnmarca.setVisible(false);
             ve.btnmodelo.setVisible(false);
-        }
+        }*/
+        
         ve.lineaBuscar.setVisible(false);
         ve.txtbusqueda.setVisible(false);
         ve.cbbusqueda.setVisible(false);
         ve.cbbusModelos.setVisible(false);
         ve.cbbusqueda.removeAllItems();
-
+        
         llenadoTabla();
+      
     }
 
     @Override
@@ -183,7 +186,7 @@ public class Cequipos implements ActionListener {
     }
 
     protected void llenadoTabla() {
-
+            
         if (sql.LlenadoTabla(ve.jtequipos)) {
 
         } else {
@@ -320,20 +323,31 @@ public class Cequipos implements ActionListener {
     }
 
     protected void AbrirMarca() {
-        ve.jfmarca.setMinimumSize(new Dimension(200, 220));
-        ve.jfmarca.setIconImage(proyecto.Proyecto.ICONO.getImage());
-        ve.jfmarca.setResizable(false);
-        ve.jfmarca.setLocationRelativeTo(ve);
-        ve.jfmarca.setVisible(true);
+        if (Clogin.Admin){
+            ve.jfmarca.setMinimumSize(new Dimension(200, 220));
+            ve.jfmarca.setIconImage(proyecto.Proyecto.ICONO.getImage());
+            ve.jfmarca.setResizable(false);
+            ve.jfmarca.setLocationRelativeTo(ve);
+            ve.jfmarca.setVisible(true);
+            
+        } else {
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
+        }
     }
 
     protected void AbrirModelo() {
-        ve.jfmodelo.setMinimumSize(new Dimension(200, 300));
-        ve.jfmodelo.setResizable(false);
-        ve.jfmodelo.setLocationRelativeTo(ve);
-        ve.cbnewModelo.removeAllItems();
-        sql.cbMarca(ve.cbnewModelo);
-        ve.jfmodelo.setVisible(true);
+        if (Clogin.Admin){
+            ve.jfmodelo.setMinimumSize(new Dimension(200, 300));
+            ve.jfmodelo.setResizable(false);
+            ve.jfmodelo.setLocationRelativeTo(ve);
+            ve.cbnewModelo.removeAllItems();
+            sql.cbMarca(ve.cbnewModelo);
+            ve.jfmodelo.setVisible(true);
+            
+        } else {
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
+        }
+
     }
 
     //funciones del CRUD
@@ -351,13 +365,13 @@ public class Cequipos implements ActionListener {
 
             if (sql.validaPC(txtSerial) == 0) {//valida que no exista otro pc con el mismo serial
 
-                String estado1 = ve.cbestado.getItemAt(cbEstado);
+                String estado1 = "Activo"; //ve.cbestado.getItemAt(cbEstado);
 
                 Equipos nuevo = new Equipos(cbMarca + 1, cbModelo, txtSerial, estado1, txtUsuario);
 
                 String numModelo = ve.cbmodelo.getItemAt(cbModelo);
 
-                if (sql.AñadirEquipos(nuevo, numModelo)) {
+                if (sql.AñadirEquipos(nuevo, numModelo)) {//pasa el objeto a la base de datos
 
                     //asignacion del equipo
                     Equipos o = sql.getEquipo(nuevo.getSerial());
@@ -371,7 +385,11 @@ public class Cequipos implements ActionListener {
                     }
 
                     JOptionPane.showMessageDialog(ve.jfañadir, "Registro Guardado");
+                    
+                    //recarga de la tabla
                     llenadoTabla();
+                    
+                    
                     ve.cbdepartamentos.setSelectedIndex(0);
                     ve.cbtipobusqueda.setSelectedIndex(0);
 
@@ -396,7 +414,7 @@ public class Cequipos implements ActionListener {
 
             if (selecionado) {//selecion
 
-                int confrimacion = JOptionPane.showConfirmDialog(ve, "¿Esta seguro de querer eliminar este reguistro?");
+                int confrimacion = JOptionPane.showConfirmDialog(ve, "¿Esta seguro de querer eliminar este registro?");
                 if (confrimacion == 0) {//confirmacion
 
                     if (sql.Eliminar(SERIAL)) {

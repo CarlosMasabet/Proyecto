@@ -42,28 +42,28 @@ public class MouseUsuarios implements MouseListener {
     @Override
     public void mouseEntered(MouseEvent me) {
         if (me.getSource().equals(ve.btnabrirAñadir)) {
-            col.oscuro(ve.btnabrirAñadir);
+            col.btnEntra(ve.btnabrirAñadir);
         }
         if (me.getSource().equals(ve.btnagregar_us)) {
-            col.oscuro(ve.btnagregar_us);
+            col.btnEntra(ve.btnagregar_us);
         }
         
         if (me.getSource().equals(ve.btneliminar)){
-            col.oscuro(ve.btneliminar);
+            col.btnEntra(ve.btneliminar);
         }
         
         if (me.getSource().equals(ve.btnabrirMod)){
-            col.oscuro(ve.btnabrirMod);
+            col.btnEntra(ve.btnabrirMod);
         }
         if (me.getSource().equals(ve.btnguardar)){
-            col.oscuro(ve.btnguardar);
+            col.btnEntra(ve.btnguardar);
         }
         
         if(me.getSource().equals(ve.btnabrirModDat)){
-            col.oscuro(ve.btnabrirModDat);
+            col.btnEntra(ve.btnabrirModDat);
         }
         if (me.getSource().equals(ve.btnmodDatos)){
-            col.oscuro(ve.btnmodDatos);
+            col.btnEntra(ve.btnmodDatos);
         }
     }
 
@@ -71,28 +71,28 @@ public class MouseUsuarios implements MouseListener {
     @Override
     public void mouseExited(MouseEvent me) {
         if (me.getSource().equals(ve.btnabrirAñadir)) {
-            col.claro(ve.btnabrirAñadir);
+            col.btnSale(ve.btnabrirAñadir);
         }
         if (me.getSource().equals(ve.btnagregar_us)) {
-            col.claro(ve.btnagregar_us);
+            col.btnSale(ve.btnagregar_us);
         }
         
         if (me.getSource().equals(ve.btneliminar)){
-            col.claro(ve.btneliminar);
+            col.btnSale(ve.btneliminar);
         }
         
         if (me.getSource().equals(ve.btnabrirMod)){
-            col.claro(ve.btnabrirMod);
+            col.btnSale(ve.btnabrirMod);
         }
         if (me.getSource().equals(ve.btnguardar)){
-            col.claro(ve.btnguardar);
+            col.btnSale(ve.btnguardar);
         }
         
         if(me.getSource().equals(ve.btnabrirModDat)){
-            col.claro(ve.btnabrirModDat);
+            col.btnSale(ve.btnabrirModDat);
         }
         if (me.getSource().equals(ve.btnmodDatos)){
-            col.claro(ve.btnmodDatos);
+            col.btnSale(ve.btnmodDatos);
         }
     }
 

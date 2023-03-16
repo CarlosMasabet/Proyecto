@@ -266,21 +266,21 @@ public class Inicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void bordes(JLabel a) {
-        a.setBorder(javax.swing.BorderFactory.createLineBorder(Color.WHITE));
+        a.setBorder(javax.swing.BorderFactory.createLineBorder(Color.BLACK));
     }
 
     public void no_bordes(JLabel b) {
-        b.setBorder(javax.swing.BorderFactory.createLineBorder(Colores.AZUL));
+        b.setBorder(javax.swing.BorderFactory.createLineBorder(Colores.GRIS_CLARO));
     }
 //boton de equipos
     private void btnequio2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequio2MouseEntered
-        Proyecto.img.bordes(btnequio2);
+        bordes(btnequio2);
         equipos.setVisible(true);
         Proyecto.img.cambio_img(btnequio2, "imagenes/inicial/EQUIPOS_P.png");
     }//GEN-LAST:event_btnequio2MouseEntered
 
     private void btnequio2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnequio2MouseExited
-        Proyecto.img.no_bordes(btnequio2);
+        no_bordes(btnequio2);
         equipos.setVisible(false);
         Proyecto.img.cambio_img(btnequio2, "imagenes/inicial/EQUIPOS.png");
     }//GEN-LAST:event_btnequio2MouseExited
@@ -299,13 +299,13 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnequio2MouseClicked
 //boton perosnas
     private void btnperifericosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseEntered
-        Proyecto.img.bordes(btnperifericos);
+        bordes(btnperifericos);
         perifericos.setVisible(true);
         Proyecto.img.cambio_img(btnperifericos, "imagenes/inicial/PERIFERICOS_P.png");
     }//GEN-LAST:event_btnperifericosMouseEntered
 
     private void btnperifericosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnperifericosMouseExited
-        Proyecto.img.no_bordes(btnperifericos);
+        no_bordes(btnperifericos);
         perifericos.setVisible(false);
         Proyecto.img.cambio_img(btnperifericos, "imagenes/inicial/PERIFERICOS.png");
     }//GEN-LAST:event_btnperifericosMouseExited
@@ -324,13 +324,13 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnperifericosMouseClicked
 //boton de usuarios
     private void btnusuarios2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuarios2MouseEntered
-        Proyecto.img.bordes(btnusuarios2);
+        bordes(btnusuarios2);
         usuarios.setVisible(true);
         Proyecto.img.cambio_img(btnusuarios2, "imagenes/inicial/USUARIOS_P.png");
     }//GEN-LAST:event_btnusuarios2MouseEntered
 
     private void btnusuarios2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnusuarios2MouseExited
-        Proyecto.img.no_bordes(btnusuarios2);
+        no_bordes(btnusuarios2);
         usuarios.setVisible(false);
         Proyecto.img.cambio_img(btnusuarios2, "imagenes/inicial/USUARIOS.png");
     }//GEN-LAST:event_btnusuarios2MouseExited
@@ -349,13 +349,13 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnusuarios2MouseClicked
 //boton de grafica
     private void btndepartamentosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseEntered
-        Proyecto.img.bordes(btndepartamentos);
+        bordes(btndepartamentos);
         departamentos.setVisible(true);
         Proyecto.img.cambio_img(btndepartamentos, "imagenes/inicial/DPTO_P.png");
     }//GEN-LAST:event_btndepartamentosMouseEntered
 
     private void btndepartamentosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndepartamentosMouseExited
-        Proyecto.img.no_bordes(btndepartamentos);
+        no_bordes(btndepartamentos);
         departamentos.setVisible(false);
         Proyecto.img.cambio_img(btndepartamentos, "imagenes/inicial/DPTO.png");
     }//GEN-LAST:event_btndepartamentosMouseExited
@@ -374,11 +374,11 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btndepartamentosMouseClicked
 //boton salir
     private void btnsalir2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseEntered
-        bordes(btnsalir2);
+        Proyecto.img.bordes(btnsalir2);
     }//GEN-LAST:event_btnsalir2MouseEntered
 
     private void btnsalir2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseExited
-        no_bordes(btnsalir2);
+        Proyecto.img.no_bordes(btnsalir2);
     }//GEN-LAST:event_btnsalir2MouseExited
 
     private void btnsalir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsalir2MouseClicked
@@ -474,19 +474,19 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_cbTipoPDFActionPerformed
 
     private void btnRespaldoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRespaldoMouseEntered
-        bordes(btnRespaldo);
+        Proyecto.img.bordes(btnRespaldo);
     }//GEN-LAST:event_btnRespaldoMouseEntered
 
     private void btnRespaldoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRespaldoMouseExited
-        no_bordes(btnRespaldo);
+        Proyecto.img.no_bordes(btnRespaldo);
     }//GEN-LAST:event_btnRespaldoMouseExited
 
     private void btnRecuperarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecuperarMouseEntered
-        bordes(btnRecuperar);
+        Proyecto.img.bordes(btnRecuperar);
     }//GEN-LAST:event_btnRecuperarMouseEntered
 
     private void btnRecuperarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRecuperarMouseExited
-        no_bordes(btnRecuperar);
+        Proyecto.img.no_bordes(btnRecuperar);
     }//GEN-LAST:event_btnRecuperarMouseExited
 
     private void btnGenerarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGenerarMouseEntered

@@ -63,18 +63,18 @@ public class Cperifericos implements ActionListener {
     }
 
     private void Inicio() {
-        ve.btntipo.setVisible(false);
         ve.cbbuscar.setVisible(false);
         ve.txtbuscar.setVisible(false);
         ve.Separador.setVisible(false);
 
-        ve.btntipo.setVisible(Clogin.Admin);
+        //ve.btntipo.setVisible(Clogin.Admin);
 
         llenadoTabla();
-
-        ve.setSize(new Dimension(590, 520));
+        
+        ve.txtus.setText(Clogin.NomUsuario);
+        ve.setSize(Proyecto.TAMAÑO);
         ve.setResizable(false);
-        ve.setTitle(Clogin.NomUsuario);
+        ve.setTitle(Proyecto.TITULO+ "-Perifericos");
         ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.setLocationRelativeTo(null);
         ve.setVisible(true);
@@ -208,12 +208,19 @@ public class Cperifericos implements ActionListener {
     }
 
     private void abrirTipo() {
-        ve.txtnuevoperi.setText("");
-        ve.jftipo.setSize(new Dimension(215, 175));
-        ve.jftipo.setResizable(false);
-        ve.jftipo.setIconImage(proyecto.Proyecto.ICONO.getImage());
-        ve.jftipo.setLocationRelativeTo(ve);
-        ve.jftipo.setVisible(true);
+        
+        if (Clogin.Admin){
+            ve.txtnuevoperi.setText("");
+            ve.jftipo.setSize(new Dimension(215, 175));
+            ve.jftipo.setResizable(false);
+            ve.jftipo.setIconImage(proyecto.Proyecto.ICONO.getImage());
+            ve.jftipo.setLocationRelativeTo(ve);
+            ve.jftipo.setVisible(true);
+            
+        } else {
+            JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
+        }
+        
     }
 
     //CRUD

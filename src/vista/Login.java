@@ -1,6 +1,8 @@
 
 package vista;
 
+import controlador.utilidades.Colores;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -18,7 +20,6 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         fondo = new java.awt.Panel();
-        logo = new javax.swing.JLabel();
         txtusuario = new javax.swing.JTextField();
         txtcontraseña = new javax.swing.JPasswordField();
         contraseña = new javax.swing.JLabel();
@@ -27,7 +28,6 @@ public class Login extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
         btnentrar = new javax.swing.JButton();
-        titulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,9 +37,7 @@ public class Login extends javax.swing.JFrame {
         fondo.setBackground(new java.awt.Color(225, 232, 236));
         fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logopequeño.png"))); // NOI18N
-        fondo.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 100, 90));
-
+        txtusuario.setBackground(Colores.GRIS_CLARO);
         txtusuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtusuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtusuario.setBorder(null);
@@ -49,10 +47,10 @@ public class Login extends javax.swing.JFrame {
             }
         });
         txtusuario.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 txtusuarioInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         txtusuario.addActionListener(new java.awt.event.ActionListener() {
@@ -65,8 +63,9 @@ public class Login extends javax.swing.JFrame {
                 txtusuarioKeyPressed(evt);
             }
         });
-        fondo.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 260, 40));
+        fondo.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 270, 40));
 
+        txtcontraseña.setBackground(Colores.GRIS_CLARO);
         txtcontraseña.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtcontraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtcontraseña.setBorder(null);
@@ -80,46 +79,40 @@ public class Login extends javax.swing.JFrame {
                 txtcontraseñaKeyPressed(evt);
             }
         });
-        fondo.add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 260, 40));
+        fondo.add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 270, 40));
 
         contraseña.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         contraseña.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         contraseña.setText("Contraseña:");
-        fondo.add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 270, -1));
+        fondo.add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 270, -1));
 
         jSeparator1.setBackground(new java.awt.Color(225, 232, 236));
         jSeparator1.setForeground(new java.awt.Color(51, 51, 51));
-        fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 270, 10));
+        fondo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, 270, 10));
 
         usuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         usuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        usuario.setText("Usuario:");
-        fondo.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 270, -1));
+        usuario.setText("Codigo:");
+        fondo.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 270, -1));
 
         jSeparator2.setBackground(new java.awt.Color(225, 232, 236));
         jSeparator2.setForeground(new java.awt.Color(51, 51, 51));
-        fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 270, 10));
+        fondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 270, 10));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("INICIAR SESIÓN");
-        fondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 170, 270, -1));
+        fondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 270, -1));
 
-        btnentrar.setBackground(new java.awt.Color(0, 134, 190));
+        btnentrar.setBackground(Colores.ROJO);
         btnentrar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnentrar.setForeground(new java.awt.Color(255, 255, 255));
         btnentrar.setText("Entrar");
         btnentrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        fondo.add(btnentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 140, 40));
-
-        titulo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        titulo.setForeground(new java.awt.Color(0, 0, 51));
-        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo.setText("Sistema de Registro de Equipos Informaticos");
-        fondo.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 910, -1));
+        fondo.add(btnentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 140, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/login.png"))); // NOI18N
-        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 565));
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1005, 590));
 
         getContentPane().add(fondo, java.awt.BorderLayout.CENTER);
 
@@ -196,8 +189,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JLabel logo;
-    private javax.swing.JLabel titulo;
     public javax.swing.JPasswordField txtcontraseña;
     public javax.swing.JTextField txtusuario;
     private javax.swing.JLabel usuario;

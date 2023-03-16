@@ -5,6 +5,7 @@ import controlador.consultas.SQLdepartamentos;
 import controlador.consultas.SQLperifericos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import proyecto.Proyecto;
 import vista.Inicial;
 
 public class CInicial implements ActionListener{
@@ -14,10 +15,9 @@ public class CInicial implements ActionListener{
     public CInicial(Inicial ve) {
         this.ve = ve;
         
-        //ve.txtus.setText(Clogin.NomUsuario);
+        ve.setTitle(Proyecto.TITULO);
         
         ve.cbTipoPDF.setSelectedIndex(0);
-        
         
         ve.cbTipoPDF.addActionListener(this);
         //ve.btnGenerar.addActionListener(this);
