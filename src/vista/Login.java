@@ -111,8 +111,8 @@ public class Login extends javax.swing.JFrame {
         btnentrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fondo.add(btnentrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 140, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/login.png"))); // NOI18N
-        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1005, 590));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondos/LOGIN.png"))); // NOI18N
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1005, 590));
 
         getContentPane().add(fondo, java.awt.BorderLayout.CENTER);
 

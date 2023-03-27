@@ -43,6 +43,8 @@ public class Clogin implements ActionListener, KeyListener {
         ve.btnentrar.addActionListener(this);
         ve.btnentrar.addKeyListener(this);
         ve.txtcontraseña.addKeyListener(this);
+        
+       
 
         Iniciar();
     }
@@ -76,6 +78,8 @@ public class Clogin implements ActionListener, KeyListener {
             us.setCodigo(ve.txtusuario.getText());
             us.setContraseña(cifrado);
             us.setUlima_secion(fecha.format(date));
+            //us.setUlima_secion(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
+            
 
             if (ventana == false) {//confirma que no exista una ventana
 

@@ -53,13 +53,13 @@ public class Menu {
     public void equipos_entra(JLabel boton, JLabel txt) {
         img.bordes(boton);
         txt.setText("Equipos");
-        img.cambio_img(boton, Imagenes.COMPUTADORA_PEQUEÑO);
+        //img.cambio_img(boton, Imagenes.COMPUTADORA_PEQUEÑO);
     }
 
     public void equipos_sale(JLabel boton, JLabel txt) {
         img.no_bordes(boton);
         txt.setText("");
-        img.cambio_img(boton, Imagenes.COMPUTADORA);
+        //img.cambio_img(boton, Imagenes.COMPUTADORA);
     }
 
     public void equipos_click(JFrame ventana) {
@@ -99,13 +99,13 @@ public class Menu {
     public void perifericos_entra(JLabel boton, JLabel txt) {
         img.bordes(boton);
         txt.setText("Perifericos");
-        img.cambio_img(boton, Imagenes.PERIFERICOS_PEQUEÑO);
+        //img.cambio_img(boton, Imagenes.PERIFERICOS_PEQUEÑO);
     }
 
     public void perifericos_sale(JLabel boton, JLabel txt) {
         img.no_bordes(boton);
         txt.setText("");
-        img.cambio_img(boton, Imagenes.PERIFERICOS);
+        //img.cambio_img(boton, Imagenes.PERIFERICOS);
     }
 
     public void perifericos_click(JFrame ventana) {
@@ -123,13 +123,13 @@ public class Menu {
     public void usuarios_entra(JLabel boton, JLabel txt) {
         img.bordes(boton);
         txt.setText("Usuarios");
-        img.cambio_img(boton, Imagenes.USUARIOS_PEQUEÑO);
+        //img.cambio_img(boton, Imagenes.USUARIOS_PEQUEÑO);
     }
 
     public void usuarios_sale(JLabel boton, JLabel txt) {
         img.no_bordes(boton);
         txt.setText("");
-        img.cambio_img(boton, Imagenes.USUARIOS);
+        //img.cambio_img(boton, Imagenes.USUARIOS);
     }
 
     public void usuarios_click(JFrame ventana) {
@@ -147,13 +147,13 @@ public class Menu {
     public void departamento_entra(JLabel boton, JLabel txt) {
         img.bordes(boton);
         txt.setText("Departamentos");
-        img.cambio_img(boton, Imagenes.DEPARTAMENTOS_PEQUEÑO);
+        //img.cambio_img(boton, Imagenes.DEPARTAMENTOS_PEQUEÑO);
     }
 
     public void departamento_sale(JLabel boton, JLabel txt) {
         img.no_bordes(boton);
         txt.setText("");
-        img.cambio_img(boton, Imagenes.DEPARTAMENTOS);
+        //img.cambio_img(boton, Imagenes.DEPARTAMENTOS);
     }
 
     public void departamento_click(JFrame ventana) {

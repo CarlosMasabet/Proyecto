@@ -28,7 +28,7 @@ public class Cusuarios implements ActionListener {
     public Cusuarios(SQLusuarios sql, Vusuarios ve) {
         this.sql = sql;
         this.ve = ve;
-        
+
         mu = new MouseUsuarios(ve, Proyecto.color);
 
         ve.btnabrirAñadir.addActionListener(this);
@@ -58,14 +58,13 @@ public class Cusuarios implements ActionListener {
     private void Iniciar() {
         ve.setMinimumSize(Proyecto.TAMAÑO);
         ve.us.setText(Clogin.NomUsuario);
-        ve.setTitle(Proyecto.TITULO+ "-Usuarios");
+        ve.setTitle(Proyecto.TITULO + "-Usuarios");
         ve.setIconImage(proyecto.Proyecto.ICONO.getImage());
         ve.setLocationRelativeTo(null);
         ve.setResizable(false);
         ve.setVisible(true);
-        
-        //ve.btnabrirModDat.setVisible(Clogin.Admin);
 
+        //ve.btnabrirModDat.setVisible(Clogin.Admin);
         LlenadoTabla();
     }
 
@@ -143,38 +142,45 @@ public class Cusuarios implements ActionListener {
         int t = ve.cbtipoUs.getSelectedIndex();
 
         //*se puede crear un usuario sin contraseña*
-        if (nombre.equals("") || codigo.equals("") || t == 0 || pass.equals("") || pass2.equals("")) {
+        if (nombre.equals("") || codigo.equals("") || t == 0 || pass.length() == 0 || pass2.length() == 0) {
             JOptionPane.showMessageDialog(ve.jfañadir_us, "Debe llenar todos los datos");
 
         } else {
-            if (pass.equals(pass2)) {
 
-                if (sql.ValidarUsusario(codigo) == 0) {
-                    String cifrado = Hash.sha1(pass);
-                    
-                    Usuarios nuevo = new Usuarios(0, codigo, nombre, "");
+            if (pass.length() >= 6) {//confirma que la contraseña tenga almenos 6 caracteres
 
-                    nuevo.setContraseña(cifrado);
-                    nuevo.setTipo_us(t + 1);
+                if (pass.equals(pass2)) {//confirma que las contraseñas sean iguales
 
-                    if (sql.Reguistrar(nuevo)) {
-                        JOptionPane.showMessageDialog(ve.jfañadir_us, "Usuario guardadro");
-                        vaciarDatos();
-                        ve.jfañadir_us.setVisible(false);
+                    if (sql.ValidarUsusario(codigo) == 0) {//valida que no exista un usuario con el mismo codigo
+                        String cifrado = Hash.sha1(pass);
 
-                        LlenadoTabla();
+                        Usuarios nuevo = new Usuarios(0, codigo, nombre, "");
 
-                    } else {
-                        JOptionPane.showMessageDialog(ve.jfañadir_us, "Error al guardar usuario");
+                        nuevo.setContraseña(cifrado);
+                        nuevo.setTipo_us(t + 1);
+
+                        if (sql.Reguistrar(nuevo)) {//ejecuta la insercion en la base de datos
+                            JOptionPane.showMessageDialog(ve.jfañadir_us, "Usuario guardadro");
+                            vaciarDatos();
+                            ve.jfañadir_us.setVisible(false);
+
+                            LlenadoTabla();
+
+                        } else {//ejecuta la insercion en la base de datos
+                            JOptionPane.showMessageDialog(ve.jfañadir_us, "Error al guardar usuario");
+                        }
+
+                    } else {//valida que no exista un usuario con el mismo codigo
+                        JOptionPane.showMessageDialog(ve.jfañadir_us, "Ya existe un usuario con ese nombre");
                     }
-
-                } else {
-                    JOptionPane.showMessageDialog(ve.jfañadir_us, "Ya existe un usuario con ese nombre");
+                } else {//confirma que las contraseñas sean iguales
+                    JOptionPane.showMessageDialog(ve.jfañadir_us, "Las contraseñas no coinciden");
+                    ve.txtpass2.setText("");
                 }
-            } else {
-                JOptionPane.showMessageDialog(ve.jfañadir_us, "Las contraseñas no coinciden");
-                ve.txtpass2.setText("");
+            } else {//confirma que la contraseña tenga almenos 6 caracteres
+                JOptionPane.showMessageDialog(ve, "La contraseña dede tener almenos 6 caracteres");
             }
+
         }
 
     }
@@ -246,52 +252,59 @@ public class Cusuarios implements ActionListener {
 
         String pass = Arrays.toString(ve.txtCpass.getPassword());
         String pass2 = Arrays.toString(ve.txtCpass2.getPassword());
-        
+
         Usuarios us = new Usuarios();
 
-        if (pass.equals("") || pass.equals("")) {//confirma que las contraseñas no esten vacias
+        if (pass.length() == 0 || pass.length() == 0) {//confirma que las contraseñas no esten vacias
             JOptionPane.showMessageDialog(ve.jfmodificar, "Debe llenar todos los datos");
 
         } else {//confirma que las contraseñas no esten vacias
 
-            if (pass.equals(pass2)) {//confirma que las contraseñas sean iguales
-                String cifrado = Hash.sha1(pass);
-                us.setContraseña(cifrado);
-                System.out.println(pass);
-                
-                int id;
-                
-                if (selecCambio) {
-                    id = sql.getId(CODIGO);
-                    
-                } else {
-                    id = sql.getIdNom(Clogin.NomUsuario);
-                }
-                us.setContraseña(cifrado);
-                us.setId(id);
+            if (pass.length() >= 6) {//confirma que la contraseña tenga almenos 6 caracteres
 
-                if (sql.ModificarClave(us)) {
-                    ve.txtCpass.setText("");
+                if (pass.equals(pass2)) {//confirma que las contraseñas sean iguales
+
+                    String cifrado = Hash.sha1(pass);
+                    us.setContraseña(cifrado);
+                    System.out.println(pass);
+
+                    int id;
+
+                    if (selecCambio) {
+                        id = sql.getId(CODIGO);
+
+                    } else {
+                        id = sql.getIdNom(Clogin.NomUsuario);
+                    }
+                    us.setContraseña(cifrado);
+                    us.setId(id);
+
+                    if (sql.ModificarClave(us)) {//ejecuta el update en la base de datos
+                        ve.txtCpass.setText("");
+                        ve.txtCpass2.setText("");
+                        ve.jfmodificar.setVisible(false);
+                        JOptionPane.showMessageDialog(ve.jfmodificar, "Contraseña modificada exitosamente");
+                    } else {
+                        JOptionPane.showMessageDialog(ve.jfmodificar, "Error al modificar contraseña");
+                    }
+
+                } else {//confirma que las contraseñas sean iguales
+                    JOptionPane.showMessageDialog(ve.jfmodificar, "Las contraseñas no coinciden");
                     ve.txtCpass2.setText("");
-                    ve.jfmodificar.setVisible(false);
-                    JOptionPane.showMessageDialog(ve.jfmodificar, "Contraseña modificada exitosamente");
-                } else {
-                    JOptionPane.showMessageDialog(ve.jfmodificar, "Error al modificar contraseña");
                 }
-
-            } else {//confirma que las contraseñas sean iguales
-                JOptionPane.showMessageDialog(ve.jfmodificar, "Las contraseñas no coinciden");
-                ve.txtCpass2.setText("");
+            } else {//confirma que la contraseña tenga almenos 6 caracteres
+                JOptionPane.showMessageDialog(ve, "La contraseña dede tener almenos 6 caracteres");
             }
+
         }
     }
 
     //Cambiar datos
     private void AbrirModDat() {
         //permite modificar los datos de los usuarios a los admin
-        
-        if (Clogin.Admin){
-            
+
+        if (Clogin.Admin) {
+
             if (seleccionado) {
 
                 seleccionado = false;
@@ -333,7 +346,6 @@ public class Cusuarios implements ActionListener {
         } else {
             JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
-        
 
     }
 
@@ -343,7 +355,7 @@ public class Cusuarios implements ActionListener {
 
         int t = ve.cbtipoUs.getSelectedIndex();
         String tipo = ve.cbtipoUs.getItemAt(t);
-        
+
         Usuarios mod = sql.getUs(CODIGO);
 
         //*se puede crear un usuario sin contraseña*
@@ -356,12 +368,12 @@ public class Cusuarios implements ActionListener {
 
             } else {
                 //System.out.println(sql.ValidarUsusario(codigo));
-                
+
                 if (!nombre.equals(NOMBRE) && sql.ValidarUsusario(codigo) != 0) {
 
                     JOptionPane.showMessageDialog(ve.jfañadir_us, "Ya existe un usuario con ese codigo");
                 } else {
-                    
+
                     mod.setCodigo(codigo);
                     mod.setNombre(nombre);
                     mod.setTipo_us(t + 1);

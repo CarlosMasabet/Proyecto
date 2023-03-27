@@ -14,11 +14,8 @@ import controlador.ventanas.perifericos.Cperifericos;
 import controlador.ventanas.departamentos.Cdepartamentos;
 import controlador.ventanas.equipo.Cequipos;
 import java.awt.Color;
-import java.awt.Font;
-import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.border.Border;
 import modelo.Usuarios;
 import proyecto.Proyecto;
 

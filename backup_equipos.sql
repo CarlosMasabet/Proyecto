@@ -206,33 +206,6 @@ INSERT INTO `perifericos` VALUES (1,34,1,'ks23'),(2,31,2,'lg8455'),(3,36,3,'8465
 UNLOCK TABLES;
 
 --
--- Table structure for table `solicitudes`
---
-
-DROP TABLE IF EXISTS `solicitudes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `solicitudes` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_dep` int NOT NULL,
-  `prioridad` int NOT NULL,
-  `solicitud` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`,`id_dep`),
-  KEY `fk_solicitudes_departamentos1_idx` (`id_dep`),
-  CONSTRAINT `fk_solicitudes_departamentos1` FOREIGN KEY (`id_dep`) REFERENCES `departamentos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `solicitudes`
---
-
-LOCK TABLES `solicitudes` WRITE;
-/*!40000 ALTER TABLE `solicitudes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `solicitudes` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tipo_us`
 --
 
@@ -273,7 +246,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`,`tipo_us`),
   KEY `fk_usuarios_tipo_us1_idx` (`tipo_us`),
   CONSTRAINT `fk_usuarios_tipo_us1` FOREIGN KEY (`tipo_us`) REFERENCES `tipo_us` (`tipo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -282,7 +255,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'001','Administrador','80f5414f8bda805dd0484569dc7be9573807c65f','2023-03-16 01:09:40',1),(2,'v28104377','Carlos Masabet','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-03-15 23:11:24',2),(3,'123','no tiene','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-01-25 14:23:55',3);
+INSERT INTO `usuarios` VALUES (1,'001','Administrador','80f5414f8bda805dd0484569dc7be9573807c65f','2023-03-27 14:50:48',1),(2,'v28104377','Carlos Masabet','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-03-15 23:11:24',2),(3,'123','no tiene','a01eda32e4e0b1393274e91d1b3e9ecfc5eaba85','2023-01-25 14:23:55',3),(4,'v28104378','Oriana Masabet','8fd0959e8c40dc236d0cb1e29a05a1a91f751e5c','2023-03-17 11:39:10',3),(5,'v8463491','Leonor Paez','9045d8ef48db5db504c9143c8ac4fcf395739a61','2023-03-17 11:43:02',3),(6,'v8218023','Jose  Masabet','8fd0959e8c40dc236d0cb1e29a05a1a91f751e5c','2023-03-23 16:35:42',2),(7,'v28270543','Luis Taipo','8fd0959e8c40dc236d0cb1e29a05a1a91f751e5c','2023-03-26 12:22:03',2);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -295,4 +268,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-16  1:09:50
+-- Dump completed on 2023-03-27 14:50:54

@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 public class Imagenes {
     
 
-
+/*
     //rutas de las imagenes 
     public static final String FLECHA_IZQUIERDA = "imagenes/menu/izquierda.png";
     public static final String FLECHA_DERECHA = "imagenes/menu/derecha.png";
@@ -28,7 +28,7 @@ public class Imagenes {
     
     public static final String DEPARTAMENTOS = "imagenes/menu/dpto40.png";
     public static final String DEPARTAMENTOS_PEQUEÑO = "imagenes/menu/dpto30.png";
-    
+    */
     //public static final String = "";
     
 

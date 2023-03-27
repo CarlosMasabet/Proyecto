@@ -179,6 +179,43 @@ public class SQLperifericos extends Conexion_SQL {
             }
         }
     }
+    
+     public boolean Eliminar(String serial) {
+        PreparedStatement ps = null;
+        Connection con = getConnection();
+        ResultSet rs = null;
+        String sql = "SELECT id FROM perifericos WHERE serial = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setString(1, serial);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                int id = rs.getInt("id");
+
+                String eliminar = "DELETE FROM perifericos WHERE id = ?";
+                ps = con.prepareStatement(eliminar);
+                ps.setInt(1, id);
+                ps.execute();
+                return true;
+            }
+            return false;
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }
+
 
     //validaciones para añadir un registro
     public int validarPeriferico(String serial) {

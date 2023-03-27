@@ -329,7 +329,17 @@ public class Cperifericos implements ActionListener {
 
     private void eliminar() {
         if (Clogin.Admin) {
-
+            if (seleccionado){
+                if(sql.Eliminar(SERIAL)){
+                    sql.LlenadoTabla(ve.jtperifericos);
+                    JOptionPane.showMessageDialog(ve, "Registro eliminado");
+                    
+                } else {
+                    JOptionPane.showMessageDialog(ve, "Error al eliminar registro");
+                }
+            } else {
+                JOptionPane.showMessageDialog(ve, "Debe seleccionar un periferico");
+            }
         } else {
             JOptionPane.showMessageDialog(ve, Proyecto.SIN_PERMISO);
         }
